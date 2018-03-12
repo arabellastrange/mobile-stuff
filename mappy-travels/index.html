@@ -45,31 +45,48 @@
     //set a default location
     var myLocation = {lat: 55.8642, lng: -4.2518};
     //get current location, if it's available
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            myLocation = {lat: position.coords.latitude, lng: position.coords.longitude};
-        });
-    } else {
-        console.log("Geolocation is not supported by this browser.");
-    }
+
 
     function initMap() {//called back when google maps has finished loading
-        map = new google.maps.Map(document.getElementById('google-map'), {
-            zoom: 15,
-            center: myLocation
-        });
 
-        var marker = new google.maps.Marker({
-            position: myLocation,
-            map: map,
-            title: 'You are here',
-            icon: {
-                url: "ped.png", // url
-                scaledSize: new google.maps.Size(30, 30), // scaled size
-                origin: new google.maps.Point(0,0), // origin
-                anchor: new google.maps.Point(0, 0) // anchor
-            }
-        });
+
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                myLocation = {lat: position.coords.latitude, lng: position.coords.longitude};
+                map = new google.maps.Map(document.getElementById('google-map'), {
+                    zoom: 15,
+                    center: myLocation
+                });
+
+                getNearbyBusStops(function(stopData){
+                    var marker, i, stops = stopData.stops;
+                    console.log(stops);
+                    for (i in stops){
+                        //add a marker for this stop (keep a reference and use marker.setMap(null) to remove it)
+                        marker = new google.maps.Marker({
+                            position: {lat: stops[i].latitude, lng: stops[i].longitude},
+                            map: map,
+                            title: stops[i].stop_name
+                        });
+                    }
+                });
+
+                var marker = new google.maps.Marker({
+                    position: myLocation,
+                    map: map,
+                    title: 'You are here',
+                    icon: {
+                        url: "ped.png", // url
+                        scaledSize: new google.maps.Size(30, 30), // scaled size
+                        origin: new google.maps.Point(0,0), // origin
+                        anchor: new google.maps.Point(0, 0) // anchor
+                    }
+                });
+            });
+        } else {
+            console.log("Geolocation is not supported by this browser.");
+        }
     }
 
     function getNearbyBusStops(callback){
@@ -78,18 +95,7 @@
 
 
     $( document ).ready(function() {
-        getNearbyBusStops(function(stopData){
-            var marker, i, stops = stopData.stops;
-            console.log(stops);
-            for (i in stops){
-                //add a marker for this stop (keep a reference and use marker.setMap(null) to remove it)
-                marker = new google.maps.Marker({
-                    position: {lat: stops[i].latitude, lng: stops[i].longitude},
-                    map: map,
-                    title: stops[i].stop_name
-                });
-            }
-        })
+
     });
 
 
