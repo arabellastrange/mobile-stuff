@@ -26,6 +26,11 @@
     <div data-role="content">
         <div id="google-map"></div>
         <ul id="stop-list" data-role="listview" data-inset="true" data-filter="true">
+            <li><a href="#">Hello</a></li>
+            <li><a href="#">Audi</a></li>
+            <li><a href="#">BMW</a></li>
+            <li><a href="#">Cadillac</a></li>
+            <li><a href="#">Ferrari</a></li>
         </ul>
     </div><!-- /content -->
 
@@ -77,14 +82,12 @@
             var marker, i, stops = stopData.stops;
             console.log(stops);
             for (i in stops){
-                //add a marker for this stop (use marker.setMap(null) to remove it)
+                //add a marker for this stop (keep a reference and use marker.setMap(null) to remove it)
                 marker = new google.maps.Marker({
                     position: {lat: stops[i].latitude, lng: stops[i].longitude},
                     map: map,
                     title: stops[i].stop_name
                 });
-                //add this stop to the stop list
-                $('#stop-list').html().append("<li><a href=\"#\">" + stops[i].name + "</a></li>");
             }
         })
     });
