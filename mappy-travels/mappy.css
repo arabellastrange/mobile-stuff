@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+    user-select: none;
+}
+
+body{
+    height: 100vh;
+}
+
+.navbar{
+    font-size: 6em;
+    background-color: orangered;
+    color: white;
+    margin-bottom: 0;
+}
+
+.navbar h1{
+    font-size: 1em;
+}
+
+.navbar button{
+    background: none;
+    border: 0;
+    text-align: center;
+}
+
+.map{
+    min-height: calc(100vh - 18em);
+    background: lightgrey;
+}
+
+.footer{
+    font-size: 6em;
+    background-color: orangered;
+    color: white;
+}
