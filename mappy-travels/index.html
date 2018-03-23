@@ -2,107 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta charset="UTF-8">
+
     <meta name = "viewport" content="maximum-scale=1.0, user-scalable=no">
     <meta name = "mobile-web-app-capable" content="yes" />
     <meta name = "apple-mobile-web-app-capable" content="yes" />
+
     <link rel="icon" size="192x192" href="img/bus-icon.svg">
     <link rel = "apple-touch-icon" href="img/bus-icon.svg">
     <link rel="shourtcut icon" href="img/bus-icon.svg" type="image/x-icon">
 
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="mappy.css">
+    <link rel="stylesheet" href="font/fontawesome-all.css">
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.6.4.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
-    <title>Mappy Travels</title>
+    <title>Home</title>
 </head>
 <body>
-<div data-role="page">
-    <div data-role="header" class="row">
-        <div class="col-md-12">
-            <h1>Mappy Travels</h1>
-        </div>
-    </div><!-- /header -->
 
-    <div data-role="content" class="row">
-        <div class="col-md-12">
-            <div id="google-map"></div>
-        </div>
-
-        <div class="col-md-4">
-            <ul id="stop-list" data-role="listview" data-inset="true" data-filter="true">
-                <li><a href="#">Hello</a></li>
-                <li><a href="#">Audi</a></li>
-                <li><a href="#">BMW</a></li>
-                <li><a href="#">Cadillac</a></li>
-                <li><a href="#">Ferrari</a></li>
-            </ul>
-        </div>
+<div class="row homenavbar">
+    <div class="col-sm-9">
     </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <a href="/mappy-travels/allRewards.html">Mappy Rewards</a>
-        </div>
+    <div class="col-sm-3">
+        <button id = "home"><i class="fas fa-cog"></i></button>
     </div>
-</div><!-- /page -->
+</div>
 
-<script>
-    var map;
-    var stopsNearUrl = "https://transportapi.com/v3/uk/bus/stops/near.json?app_id=e563ffce&app_key=7d1b8ac66b8c96945c1e608dd55a47ff&page=1&rpp=50";
-    //set a default location
-    var myLocation = {lat: 55.8642, lng: -4.2518};
-    //get current location, if it's available
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            myLocation = {lat: position.coords.latitude, lng: position.coords.longitude};
-        });
-    } else {
-        console.log("Geolocation is not supported by this browser.");
-    }
+<div>
+    <!-- cards go here -->
 
-    function initMap() {//called back when google maps has finished loading
-        map = new google.maps.Map(document.getElementById('google-map'), {
-            zoom: 15,
-            center: myLocation
-        });
+</div>
 
-        var marker = new google.maps.Marker({
-            position: myLocation,
-            map: map,
-            title: 'You are here',
-            icon: {
-                url: "img/ped.png", // url
-                scaledSize: new google.maps.Size(30, 30), // scaled size
-                origin: new google.maps.Point(0,0), // origin
-                anchor: new google.maps.Point(0, 0) // anchor
-            }
-        });
-    }
-
-    function getNearbyBusStops(callback){
-        $.ajax({url: stopsNearUrl + "&lat=" + myLocation.lat + "&lon=" + myLocation.lng, success: callback});
-    }
-
-
-    window.addEventListener("load", function() {
-        getNearbyBusStops(function(stopData){
-            var marker, i, stops = stopData.stops;
-            console.log(stops);
-            for (i in stops){
-                //add a marker for this stop (keep a reference and use marker.setMap(null) to remove it)
-                marker = new google.maps.Marker({
-                    position: {lat: stops[i].latitude, lng: stops[i].longitude},
-                    map: map,
-                    title: stops[i].stop_name
-                });
-            }
-        })
-    });
-</script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRGwsaCzyyexZZlgf5UkrodRhlkydlKC8&callback=initMap">
-</script>
 </body>
 </html>
