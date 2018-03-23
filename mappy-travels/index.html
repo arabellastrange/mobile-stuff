@@ -14,28 +14,23 @@
 
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
 </head>
 <body>
-<div data-role="page">
+<script>
+    var title = {myTitle: "Hello, World!"};
+</script>
 
-    <div data-role="header">
-        <h1>My Title</h1>
+<script id="template" type="x-tmpl-mustache">
+    <h1> {{myTitle}} </h1>
+</script>
+
+    <div id="header">
+            ...Loading
     </div><!-- /header -->
 
-    <div data-role="content">
-        <div id="google-map"></div>
-        <ul id="stop-list" data-role="listview" data-inset="true" data-filter="true">
-            <li><a href="#">Hello</a></li>
-            <li><a href="#">Audi</a></li>
-            <li><a href="#">BMW</a></li>
-            <li><a href="#">Cadillac</a></li>
-            <li><a href="#">Ferrari</a></li>
-        </ul>
-    </div><!-- /content -->
+    <div id="google-map">
 
-
-</div><!-- /page -->
+    </div>
 
 
 
@@ -47,10 +42,8 @@
     //get current location, if it's available
 
 
+
     function initMap() {//called back when google maps has finished loading
-
-
-
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 myLocation = {lat: position.coords.latitude, lng: position.coords.longitude};
@@ -89,12 +82,18 @@
         }
     }
 
+
     function getNearbyBusStops(callback){
         $.ajax({url: stopsNearUrl + "&lat=" + myLocation.lat + "&lon=" + myLocation.lng, success: callback});
     }
 
 
     $( document ).ready(function() {
+        console.log('hello');
+            var template = $('#template').html();
+            Mustache.parse(template);
+            var rendered = Mustache.render(template, title);
+            $('#header').html(rendered);
 
     });
 
@@ -102,6 +101,7 @@
 
 
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRGwsaCzyyexZZlgf5UkrodRhlkydlKC8&callback=initMap">
 </script>
