@@ -30,6 +30,7 @@
 <div id="page-content">
 
 </div>
+<div id="scripts"></div>
 
 <script>
     //a sample object with which to test different templates:
@@ -41,20 +42,34 @@
     });
 
     function loadMapTemplate(){
-        loadTemplate('map');
+        loadTemplate('map', true);
     }
 
     function loadColorTemplate(){
         loadTemplate('color');
     }
 
-    function loadTemplate(templateName){
+    /**
+     *
+     * @param templateName load the .template.html file of this name name
+     * @param script - true to load scripts from corresponding file
+     */
+    function loadTemplate(templateName, script){
         $.get( 'templates/'+templateName+'.template.html', function( template ) {
             //use mustache to bind the template and data
             var html = Mustache.to_html(template, user);
             //insert the resulting html in the element with id="page-content"
             $('#page-content').html(html);
         });
+        if (script){
+            //if the script flag is set, fetch the scripts too!
+            $.get( 'templates/'+templateName+'.scripts.html', function( template ) {
+                //use mustache to bind the template and data
+                var html = Mustache.to_html(template, user);
+                //insert the resulting html in the element with id="scripts"
+                $('#scripts').html(html);
+            });
+        }
     }
 
 </script>
