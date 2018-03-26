@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>Mappy-Travels</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script src="js/RouteModel.js"></script>
+    <style>
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #description {
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+
+<div id="confirm-bar">
+    <p>confirm route??</p>
+    <button onclick="saveRoute()">confirm</button>
+</div>
+
+
+<div id="map"></div>
+
+<script>
+
+    var origin, destination;
+
+    //creates map and adds the two markers
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            mapTypeId: 'roadmap'
+        });
+
+        //gets origin and destination from routeModel
+        route = getRoute();
+        origin = route[0];
+        destination = route[1];
+
+        var markers = [];
+        //adds origin marker
+        markers.push(new google.maps.Marker({
+            map: map,
+            title: "origin",
+            position: origin
+        }));
+        //adds destination marker
+        markers.push(new google.maps.Marker({
+            map: map,
+            title: "destination",
+            position: destination
+        }));
+
+        console.log(origin, destination);
+
+        //changes the bounds of map to fit the two markers
+        var bounds = new google.maps.LatLngBounds();
+        for (var i = 0; i < markers.length; i++) {
+            bounds.extend(markers[i].getPosition());
+        }
+
+        map.fitBounds(bounds);
+
+
+    }
+
+    function getRoute() {
+
+        //temp (should get rout model from user selected route)
+        var routeModel = new RouteModel();
+        routeModel.setOriginLatLng({lat: 55.862998, lng: -4.247325});
+        routeModel.setDestinationLatLng({lat: 55.873866, lng: -4.232791});
+
+        origin = routeModel.getOriginLatLng();
+        destination = routeModel.getDestinationLatLng();
+
+        return [origin, destination]
+
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRGwsaCzyyexZZlgf5UkrodRhlkydlKC8&libraries=places&callback=initMap"
+        async defer></script>
+
+</body>
+</html>
