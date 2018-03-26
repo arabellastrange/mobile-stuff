@@ -8,7 +8,7 @@
 session_start();
 require ('dbconnect.php');
 if(isset($_POST['username']) && isset($_POST['password'])){
-    $username = $_POST['username'];
+    $username = $conn->real_escape_string(strip_tags($_POST['username']));
     $password = hash('SHA256', $_POST['password']);
     $sql = "SELECT * FROM `MappyUsers` WHERE UserID='$username' AND UserPW='$password'";
     $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));

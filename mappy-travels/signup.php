@@ -37,11 +37,12 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['reent
 
     if(matchingPasswords($password, $reenterpassword) && usernameIsUnique($username, $conn)){
         echo "Matching and unique";
-        $password =  password_hash($_POST['password'],PASSWORD_BCRYPT);
+        $password =  hash('SHA256', $password);
         $sql = "INSERT INTO `MappyUsers` (`UserID`, `UserPW`) VALUES ('$username','$password')";
         $result = mysqli_query($conn, $sql);
         if($result){
-            echo  "Registration Successful";
+            $sql = "INSERT INTO `PrizesToUsers` (`UserID`) VALUES ('$username')";
+            mysqli_query($conn, $sql);
             $msg = "Registration Successful";
         }
         else {
@@ -57,7 +58,7 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['reent
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Places Searchbox</title>
+    <title>Sign Up</title>
 
 </head>
 <body>
