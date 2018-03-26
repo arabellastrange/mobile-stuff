@@ -24,12 +24,12 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         $msg = "Invalid Login Credentials.";
     }
 }
-
+$json = Array();
 if(isset($_SESSION['username'])){
-    $username = $_SESSION['username'];
-    echo json_encode($username);
+    $json['username'] = $_SESSION['username'];
+    echo json_encode($json);
 }
 else {
-
-    echo(json_encode(false));
+    $json['msg'] = $msg;
+    echo(json_encode($json));
 }

@@ -5,9 +5,10 @@
     <label for="password">Password:</label>
     <input type="password" name="password" id="password" maxlength="20"/>
     <input type="submit" name="submit" value="submit"/>
+    <div id="error-message"></div>
 </form>
 
-<p>Not registered? Sign up <a onclick="loadTemplate('signup')">here</a></p>
+<p>Not registered? Sign up <a href="#" onclick="loadTemplate('signup')">here</a></p>
 <script>
  
         var request;
@@ -45,11 +46,12 @@
             // Callback handler that will be called on success
             request.done(function (response, textStatus, jqXHR){
                 // Log a message to the console
-                if (response){
+                if (response.username){
                     //successful login
                     loadTemplate('map',true);
                 }
                 else {
+                    $('#error-message').html(response.msg);
                     //show error message
                 }
             });
