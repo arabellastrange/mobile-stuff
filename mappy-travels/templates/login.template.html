@@ -6,8 +6,10 @@
     <input type="password" name="password" id="password" maxlength="20"/>
     <input type="submit" name="submit" value="submit"/>
 </form>
-<script>
 
+<p>Not registered? Sign up <a onclick="loadTemplate('signup')">here</a></p>
+<script>
+ 
         var request;
 
         $("#signin").submit(function(event){
@@ -43,9 +45,13 @@
             // Callback handler that will be called on success
             request.done(function (response, textStatus, jqXHR){
                 // Log a message to the console
-                console.log("Hooray, it worked!");
-                console.log(response);
-                loadTemplate('map', true); //set the flag to true to load a scripts file
+                if (response){
+                    //successful login
+                    loadTemplate('map',true);
+                }
+                else {
+                    //show error message
+                }
             });
 
             // Callback handler that will be called on failure

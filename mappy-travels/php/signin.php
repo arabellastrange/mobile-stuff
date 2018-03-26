@@ -20,6 +20,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         $_SESSION['username'] = $username;
     }
     else {
+        unset($_SESSION);
         $msg = "Invalid Login Credentials.";
     }
 }
@@ -29,5 +30,6 @@ if(isset($_SESSION['username'])){
     echo json_encode($username);
 }
 else {
-    echo(false);
+
+    echo(json_encode(false));
 }
