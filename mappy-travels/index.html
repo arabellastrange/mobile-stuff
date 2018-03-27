@@ -34,7 +34,11 @@
 
 <script>
     //a sample object with which to test different templates:
-    var user = {name: 'bob', id:33, color: 'blue', position: {lat:55.8642, lng: -4.2518}};
+    var user = {name: 'bob', id:33, color: 'blue', position: {lat:55.8642, lng: -4.2518},
+                routes: [
+                    {name: "work", origin: {lat:55.4642, lng: -4.2518}, destination:{lat:55.8642, lng: -4.2418}},
+                    {name: "rob's house", origin: {lat:55.4642, lng: -4.2518}, destination:{lat:55.8642, lng: -4.2418}}
+                ]};
 
     //document ready in JQuery is like window on load in JS - it tells you when everything's ready to go
     $('document').ready(function(){

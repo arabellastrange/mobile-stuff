@@ -1,0 +1,14 @@
+{{#routes.length}}
+    <header>
+        {{name}}'s Routes
+    </header>
+    {{#routes}}
+        <button id="route-{{name}}"> {{name}} </button>
+    {{/routes}}
+{{/routes.length}}
+{{^routes.length}}
+    <header>
+        Add New Route
+    </header>
+{{/routes.length}}
+<button id="addNewRoute" onclick="loadTemplate('new-route')"> + </button>
