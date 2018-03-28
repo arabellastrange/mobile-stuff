@@ -1,0 +1,45 @@
+1) php files should begin with the following 3 lines of code:
+
+session_start();                                - to ensure the $_SESSION variable is available and persisted
+require ('dbconnect.php');                      - to get access to a $conn variable, which holds the mysqli object.
+header('Content-Type: application/json');       - to ensure that responses will be a JavaScript object
+
+2) because a valid JSON response is one JSON object, you should echo only one object - usually an associative array with
+everything you need inside it
+
+eg.
+
+$username = "Rob"
+$friendList = Array("Bob", "Lob");
+echo json_encode(Array( "username" => $username, "id" => 6, "friends"=> $friendList  ));
+
+- your front end response will be a json object that looks like this:
+{
+    username: "Rob",
+    id: 6,
+    friends: ["Bob", "Lob"]
+}
+
+
+
+3) because we rely on the session variable to keep users logged in, all files that get or post an individual users data
+should contain the following code:
+
+if (!isset($_SESSION['username'])){
+    echo json_encode(Array("session_timeout"=>true));
+    die("");
+}
+//if you're still here, you're still logged in
+
+
+- all code handling the ajax response should check for session timeout and redirect to login, eg
+
+if (response.session_timeout){
+    loadTemplate('login', true);
+}
+else {
+    //you've got data for this page
+}
+
+
+4) it's good practice to call $conn->close() at the end of every script

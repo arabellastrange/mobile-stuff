@@ -51,7 +51,9 @@
             // Log a message to the console
             if (response.username){
                 //successful login
-                loadTemplate('prizes', true);
+                user.name = response.username;
+                user.routes = response.routes;
+                loadTemplate('mainpage');
             }
             else {
                 $('#error-message').html(response.msg);

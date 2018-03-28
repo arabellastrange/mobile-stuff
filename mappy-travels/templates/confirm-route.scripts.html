@@ -11,6 +11,33 @@
             button.disabled = true;
         }
     }
+
+    function sendRouteToDatabase(route) {
+        var dataString = 'username='+encodeURI(user.name)+'&route='+encodeURI(JSON.stringify(route));
+        $.ajax({
+            url: 'php/postRoute.php',
+            dataType: 'json',
+            type: 'post',
+            data: dataString,
+            processData: false,
+            success: function( data, textStatus, jQxhr ){
+                if (data.session_timeout){
+                    console.log('session timeout');
+                    loadTemplate('login', true);
+                }
+                else {
+                    console.log(data);
+                    user.routes.push(route);
+                    loadTemplate('mainpage');
+                }
+            },
+            error: function( jqXhr, textStatus, errorThrown ){
+                console.log( errorThrown );
+                console.log(textStatus);
+            }
+        });
+    }
+
     function saveRoute(){
         var route = {origin: origin, destination: destination};
         var name = document.getElementById('route-name').value.trim();
@@ -27,9 +54,7 @@
 
         if (uniqueRouteName(name)){
             route.name = name;
-            user.routes.push(route);
-            //todo put route in the database using ajax
-            loadTemplate('mainpage');
+            sendRouteToDatabase(route);
         }
         else {
             $('#message').html('You already have a route with that name')
