@@ -4,7 +4,7 @@
 
     function nameUpdated(){
         var button = document.getElementById('save-route');
-        if (document.getElementById('route-name').value){
+        if (document.getElementById('route-name').value.trim()){
             button.disabled = false;
         }
         else {
@@ -13,11 +13,27 @@
     }
     function saveRoute(){
         var route = {origin: origin, destination: destination};
-        var name = document.getElementById('route-name').value;
-        //TODO check for routes with the same name to prevent duplicates
-        route.name = name;
-        user.routes.push(route);
-        loadTemplate('mainpage');
+        var name = document.getElementById('route-name').value.trim();
+
+        function uniqueRouteName(name) {
+            var i;
+            for (i in user.routes){
+                if (user.routes[i].name.trim().toLowerCase() === name.toLowerCase()){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        if (uniqueRouteName(name)){
+            route.name = name;
+            user.routes.push(route);
+            //todo put route in the database using ajax
+            loadTemplate('mainpage');
+        }
+        else {
+            $('#message').html('You already have a route with that name')
+        }
     }
 
     //creates map and adds the two markers
