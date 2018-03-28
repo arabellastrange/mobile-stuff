@@ -1,0 +1,29 @@
+<script>
+    
+    $("#prizes").load(function (event) {
+        request = $.ajax({
+            url: "php/prizes.php",
+            type: "post",
+            dataType:"json"
+        });
+        
+        request.done(function (response, textStatus, jqXHR) {
+            if(response.userPoints && response.prizeArray){
+               var points = JSON.parse(userPoints);
+               var prizes = JSON.parse(prizeArray);
+            }
+            else{
+                $('#error-message').html(response.msg)
+            }
+        });
+
+        request.fail(function (jqXHR, textStatus, errorThrown) {
+            //Log the error to the console
+            console.error(
+                "The following error occurred: "+
+                    textStatus, errorThrown
+            );
+
+        });
+    });
+</script>

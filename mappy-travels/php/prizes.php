@@ -39,5 +39,6 @@ if(isset($_SESSION['username'])){
     $combinedPrizes = array_combine($prizes, $prizeStatus);
     $json['prizeArray'] = json_encode((array)$combinedPrizes);
     $json['userPoints'] = json_encode($points);
+    $json['msg'] = json_encode("could not load prize array or user points");
 
 }
