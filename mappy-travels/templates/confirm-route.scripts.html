@@ -1,0 +1,72 @@
+<script>
+
+    var origin, destination;
+
+    function nameUpdated(){
+        var button = document.getElementById('save-route');
+        if (document.getElementById('route-name').value){
+            button.disabled = false;
+        }
+        else {
+            button.disabled = true;
+        }
+    }
+    function saveRoute(){
+        var route = {origin: origin, destination: destination};
+        var name = document.getElementById('route-name').value;
+        //TODO check for routes with the same name to prevent duplicates
+        route.name = name;
+        user.routes.push(route);
+        loadTemplate('mainpage');
+    }
+
+    //creates map and adds the two markers
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            mapTypeId: 'roadmap'
+        });
+
+        //gets origin and destination from routeModel
+        var route = getRoute();
+        origin = route.origin;
+        destination = route.destination;
+
+        var markers = [];
+        //adds origin marker
+        markers.push(new google.maps.Marker({
+            map: map,
+            title: "origin",
+            position: origin
+        }));
+        //adds destination marker
+        markers.push(new google.maps.Marker({
+            map: map,
+            title: "destination",
+            position: destination
+        }));
+
+        console.log(origin, destination);
+
+        //changes the bounds of map to fit the two markers
+        var bounds = new google.maps.LatLngBounds();
+        for (var i = 0; i < markers.length; i++) {
+            bounds.extend(markers[i].getPosition());
+        }
+
+        map.fitBounds(bounds);
+
+
+    }
+
+    function getRoute() {
+        //using mustache to bind the data from the previous page (new-route)
+        origin = {lat: {{origin.lat}}, lng: {{origin.lng}}};
+        destination = {lat: {{destination.lat}}, lng: {{destination.lng}}  };
+
+        return {origin: origin, destination: destination};
+
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRGwsaCzyyexZZlgf5UkrodRhlkydlKC8&libraries=places&callback=initMap"
+        async defer></script>
