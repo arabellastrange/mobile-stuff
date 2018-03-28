@@ -51,7 +51,7 @@
             // Log a message to the console
             if (response.username){
                 //successful login
-                loadTemplate('mainpage');
+                loadTemplate('prizes', true);
             }
             else {
                 $('#error-message').html(response.msg);

@@ -1,19 +1,26 @@
 <script>
-    
-    $("#prizes").load(function (event) {
+
+    console.log("loaded");
+
         request = $.ajax({
             url: "php/prizes.php",
             type: "post",
-            dataType:"json"
+            dataType: "json"
         });
-        
+
         request.done(function (response, textStatus, jqXHR) {
-            if(response.userPoints && response.prizeArray){
-               var points = JSON.parse(userPoints);
-               var prizes = JSON.parse(prizeArray);
+            console.log(response);
+            if(response.points && response.prizes){
+               var points = response.points;
+               var prizes = response.prizes;
+               var userPrizes = response.userPrizes;
+               console.log(points);
+               console.log(prizes);
+               console.log(userPrizes);
             }
             else{
-                $('#error-message').html(response.msg)
+                $('#error-message').html(response.msg);
+                console.log("adbabdbadb");
             }
         });
 
@@ -21,9 +28,8 @@
             //Log the error to the console
             console.error(
                 "The following error occurred: "+
-                    textStatus, errorThrown
+                    textStatus, errorThrown, jqXHR
             );
 
         });
-    });
 </script>

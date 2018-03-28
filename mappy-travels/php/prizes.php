@@ -8,37 +8,39 @@
 session_start();
 require ('dbconnect.php');
 header('Content-Type: application/json');
-$prizeStatus = array();
+$userPrizes = array();
 $prizes = array();
-$combinedPrizes = array();
 
-if(isset($_SESSION['username'])){
-    $username = $_SESSION['username'];
+//if(isset($_SESSION['username'])){
+
+    $json = Array();
+
+    $username = "a";
 
     $pointsql = "SELECT `UserXP` FROM `MappyUsers` WHERE `UserID` = '$username'";
     $points = mysqli_query($conn, $pointsql);
 
-    $sql = "SELECT * FROM `PrizesToUsers` WHERE `UserID` = '$username'";
-    $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-    while (($row = mysqli_fetch_assoc($result))){
-        array_push($prizeStatus, $row['PrizeOne']);
-        array_push($prizeStatus, $row['PrizeTwo']);
-        array_push($prizeStatus, $row['PrizeThree']);
-        array_push($prizeStatus, $row['PrizeFour']);
-        array_push($prizeStatus, $row['PrizeFive']);
-        array_push($prizeStatus, $row['PrizeSix']);
+    $sql = "SELECT `PrizeID` FROM `PrizesToUsers` WHERE `UserID` = '$username'";
+    $result = mysqli_query($conn, $sql);
+    if($result) {
+        while (($row = mysqli_fetch_assoc($result))) {
+            array_push($userPrizes, $row);
+        }
+        $json["userPrizes"] = (array)($userPrizes);
     }
 
-    $pdsql = "SELECT `PrizeName``PointsRequired``PrizePic` FROM `MappyPrizes`";
-    $result = mysqli_query($conn, $pdsql) or die(mysqli_error($conn));
+    $pdsql = "SELECT `PrizeName`,`PointsRequired`,`PrizePic` FROM `MappyPrizes`";
+    $result = mysqli_query($conn, $pdsql);
     while(($pdrow = mysqli_fetch_assoc($result))){
         array_push($prizes, $pdrow);
     }
 
-    $json = Array();
-    $combinedPrizes = array_combine($prizes, $prizeStatus);
-    $json['prizeArray'] = json_encode((array)$combinedPrizes);
-    $json['userPoints'] = json_encode($points);
-    $json['msg'] = json_encode("could not load prize array or user points");
 
-}
+    $json["prizes"] = (array)($prizes);
+    $json['points'] = ($points);
+    //$json['msg'] = ("could not load prize array or user points");
+    echo json_encode($json);
+//}
+//else{
+//   // echo json_encode(false);
+//}
