@@ -21,9 +21,15 @@
             data: dataString,
             processData: false,
             success: function( data, textStatus, jQxhr ){
-                console.log(data);
-                user.routes.push(route);
-                loadTemplate('mainpage');
+                if (data.session_timeout){
+                    console.log('session timeout');
+                    loadTemplate('login', true);
+                }
+                else {
+                    console.log(data);
+                    user.routes.push(route);
+                    loadTemplate('mainpage');
+                }
             },
             error: function( jqXhr, textStatus, errorThrown ){
                 console.log( errorThrown );

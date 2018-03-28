@@ -9,7 +9,10 @@ session_start();
 require ('dbconnect.php');
 header('Content-Type: application/json');
 
-//TODO validate session
+if (!isset($_SESSION['username'])){
+    echo json_encode(Array("session_timeout"=>true));
+    die("");
+}
 
 if(isset($_POST['username']) && isset($_POST['route'])){
     $sql = "INSERT INTO `RoutesToUsers`(`id`, `UserID`, `Route`, `Worth`) VALUES (0,?,?,250)";

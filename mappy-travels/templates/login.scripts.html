@@ -51,6 +51,8 @@
             // Log a message to the console
             if (response.username){
                 //successful login
+                user.name = response.username;
+                user.routes = response.routes;
                 loadTemplate('mainpage');
             }
             else {

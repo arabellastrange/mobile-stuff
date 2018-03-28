@@ -26,10 +26,18 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 }
 $json = Array();
 if(isset($_SESSION['username'])){
-    $json['username'] = $_SESSION['username'];
+    $username = $_SESSION['username'];
+    $json['username'] = $username;
+    $sql = "SELECT * FROM `RoutesToUsers` WHERE UserID='$username'";
+    $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+    $json['routes'] = Array();
+    while (($row = mysqli_fetch_assoc($result))){
+        $json['routes'][] = json_decode($row['Route']);
+    }
     echo json_encode($json);
 }
 else {
     $json['msg'] = $msg;
     echo(json_encode($json));
 }
+$conn->close();
