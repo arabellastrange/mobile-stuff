@@ -2,6 +2,24 @@
 
     var origin, destination;
 
+    function nameUpdated(){
+        var button = document.getElementById('save-route');
+        if (document.getElementById('route-name').value){
+            button.disabled = false;
+        }
+        else {
+            button.disabled = true;
+        }
+    }
+    function saveRoute(){
+        var route = {origin: origin, destination: destination};
+        var name = document.getElementById('route-name').value;
+        //TODO check for routes with the same name to prevent duplicates
+        route.name = name;
+        user.routes.push(route);
+        loadTemplate('mainpage');
+    }
+
     //creates map and adds the two markers
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {

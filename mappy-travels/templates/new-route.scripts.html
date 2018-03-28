@@ -10,8 +10,8 @@
 
     function initAutocomplete() {
         map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -33.8688, lng: 151.2195},
-            zoom: 13,
+            center: {lat: 55.8674, lng: -4.251},
+            zoom: 15,
             mapTypeId: 'roadmap'
         });
 
@@ -70,30 +70,40 @@
                 } else {
                     bounds.extend(place.geometry.location);
                 }
+                searchFromLocation();
             });
             map.fitBounds(bounds);
         });
     }
 
-</script>
-<script>
 
     var selectingOrigin = true;
     var originLatLng;
-    var activeMarkerList;
+    var activeMarkerList = [];
     var stopsNearUrl = "https://transportapi.com/v3/uk/bus/stops/near.json?app_id=e563ffce&app_key=7d1b8ac66b8c96945c1e608dd55a47ff&page=1&rpp=50";
     var origin, destination;
 
-    function addMarkerListener(marker) {
+    function selectOrigin(){
+        selectingOrigin = true;
+        clearAllMarkers();
+        $('#message').html('Select a starting location');
+    }
+
+    function clearAllMarkers(){
         var x;
+        for (x in activeMarkerList){
+            activeMarkerList[x].setMap(null);
+        }
+        activeMarkerList = [];
+    }
+
+    function addMarkerListener(marker) {
         marker.addListener('click', function(){
             if (selectingOrigin){
                 originLatLng = {lat: marker.position.lat(), lng: marker.position.lng()};
                 selectingOrigin = false;
-                for (x in activeMarkerList){
-                    activeMarkerList[x].setMap(null);
-                }
-                activeMarkerList = [];
+                clearAllMarkers();
+                $('#message').html('Select a destination <button onclick="selectOrigin()">Back</button>');
             }
             else {
                 //destination selected
@@ -120,6 +130,9 @@
 
 
     function searchFromLocation() {
+        if(activeMarkerList.length){
+            clearAllMarkers();
+        }
         var places = (searchBox.getPlaces());
         if (typeof places !== 'undefined'){
             console.log(places);
@@ -140,8 +153,9 @@
                     addMarkerListener(marker);
                     activeMarkerList.push(marker);
                 }
-            })
+            });
         }
+
     }
 
     function getNearbyBusStops(latLng, callback){
