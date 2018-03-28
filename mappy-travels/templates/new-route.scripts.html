@@ -97,6 +97,23 @@
             }
             else {
                 //destination selected
+                //custom redirect
+                var destinationLatLng = {lat: marker.position.lat(), lng: marker.position.lng()};
+                var routeObject = {origin: originLatLng, destination: destinationLatLng};
+                console.log(routeObject);
+                $.get( 'templates/confirm-route.template.html', function( template ) {
+                    //use mustache to bind the template and data
+                    var html = Mustache.to_html(template, routeObject);
+                    //insert the resulting html in the element with id="page-content"
+                    $('#page-content').html(html);
+                });
+                //if the script flag is set, fetch the scripts too!
+                $.get( 'templates/confirm-route.scripts.html', function( template ) {
+                    //use mustache to bind the template and data
+                    var html = Mustache.to_html(template, routeObject);
+                    //insert the resulting html in the element with id="scripts"
+                    $('#scripts').html(html);
+                });
             }
         })
     }
