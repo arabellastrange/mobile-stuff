@@ -1,6 +1,7 @@
 <div id="confirm-bar">
+    <div id="message"></div>
     <p>confirm route??</p>
-    <input id="route-name" type="text" oninput="nameUpdated()" placeholder="Route name (eg. 'Work')" />
+    <input id="route-name" type="text" oninput="nameUpdated()" onclick="this.select()" placeholder="Route name (eg. 'Work')" />
     <button id="save-route" onclick="saveRoute()" disabled>confirm</button>
 </div>
 
