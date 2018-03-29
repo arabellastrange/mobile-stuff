@@ -26,7 +26,6 @@
                     loadTemplate('login', true);
                 }
                 else {
-                    console.log(data);
                     user.routes.push(route);
                     loadTemplate('mainpage');
                 }
@@ -102,8 +101,8 @@
 
     function getRoute() {
         //using mustache to bind the data from the previous page (new-route)
-        origin = {stopName: {{origin.name}} ,lat: {{origin.lat}}, lng: {{origin.lng}}};
-        destination = {stopName: {{destination.name}},lat: {{destination.lat}}, lng: {{destination.lng}}  };
+        origin = {stopName: "{{origin.name}}" ,lat: {{origin.lat}}, lng: {{origin.lng}}};
+        destination = {stopName: "{{destination.name}}" , lat: {{destination.lat}} , lng: {{destination.lng}}  };
 
         return {origin: origin, destination: destination};
 

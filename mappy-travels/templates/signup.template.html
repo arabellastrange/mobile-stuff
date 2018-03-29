@@ -35,8 +35,6 @@
         $inputs.prop("disabled", true);
 
         // Fire off the request to /form.php
-        console.log('firing ajax');
-        console.log(serializedData);
         request = $.ajax({
             url: "php/signup.php",
             type: "post",
@@ -47,14 +45,11 @@
         request.done(function (response, textStatus, jqXHR){
             // Log a message to the console
             if (response){
-                //successful login
-                console.log("Success!");
-                console.log(response);
+                //successful registration -> could potentially do auto login
                 loadTemplate('login');
             }
             else {
-                //show error message
-                console.log("Failed to register");
+                //todo show error message
             }
         });
 

@@ -110,7 +110,6 @@
                 //custom redirect
                 var destinationLatLng = {name: marker.name, lat: marker.position.lat(), lng: marker.position.lng()};
                 var routeObject = {origin: originLatLng, destination: destinationLatLng};
-                console.log(routeObject);
                 $.get( 'templates/confirm-route.template.html', function( template ) {
                     //use mustache to bind the template and data
                     var html = Mustache.to_html(template, routeObject);
@@ -135,9 +134,7 @@
         }
         var places = (searchBox.getPlaces());
         if (typeof places !== 'undefined'){
-            console.log(places);
             var location = places[0].geometry.location;
-            console.log(places[0].geometry.location.lat());
             origin = ({lat: location.lat(), lng: location.lng()});
             activeMarkerList = [];
             getNearbyBusStops(origin, function(stopData){
