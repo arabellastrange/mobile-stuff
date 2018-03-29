@@ -102,8 +102,8 @@
 
     function getRoute() {
         //using mustache to bind the data from the previous page (new-route)
-        origin = {lat: {{origin.lat}}, lng: {{origin.lng}}};
-        destination = {lat: {{destination.lat}}, lng: {{destination.lng}}  };
+        origin = {stopName: {{origin.name}} ,lat: {{origin.lat}}, lng: {{origin.lng}}};
+        destination = {stopName: {{destination.name}},lat: {{destination.lat}}, lng: {{destination.lng}}  };
 
         return {origin: origin, destination: destination};
 

@@ -100,7 +100,7 @@
     function addMarkerListener(marker) {
         marker.addListener('click', function(){
             if (selectingOrigin){
-                originLatLng = {lat: marker.position.lat(), lng: marker.position.lng()};
+                originLatLng = {name: marker.name, lat: marker.position.lat(), lng: marker.position.lng()};
                 selectingOrigin = false;
                 clearAllMarkers();
                 $('#message').html('Select a destination <button onclick="selectOrigin()">Back</button>');
@@ -108,7 +108,7 @@
             else {
                 //destination selected
                 //custom redirect
-                var destinationLatLng = {lat: marker.position.lat(), lng: marker.position.lng()};
+                var destinationLatLng = {name: marker.name, lat: marker.position.lat(), lng: marker.position.lng()};
                 var routeObject = {origin: originLatLng, destination: destinationLatLng};
                 console.log(routeObject);
                 $.get( 'templates/confirm-route.template.html', function( template ) {
@@ -150,6 +150,7 @@
                         map: map,
                         title: stops[i].stop_name
                     });
+                    marker.name = stops[i].name;
                     addMarkerListener(marker);
                     activeMarkerList.push(marker);
                 }
