@@ -54,6 +54,7 @@
 
         if (uniqueRouteName(name)){
             route.name = name;
+            route.xp = 250; // default value
             sendRouteToDatabase(route);
         }
         else {

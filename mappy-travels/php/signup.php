@@ -37,8 +37,6 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['reent
         $sql = "INSERT INTO `MappyUsers` (`UserID`, `UserPW`) VALUES ('$username','$password')";
         $result = mysqli_query($conn, $sql);
         if($result){
-            $sql = "INSERT INTO `PrizesToUsers` (`UserID`) VALUES ('$username')";
-            mysqli_query($conn, $sql);
             $msg = "Registration Successful";
             echo json_encode(true);
         }

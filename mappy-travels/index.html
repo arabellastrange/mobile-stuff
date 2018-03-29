@@ -8,22 +8,22 @@
     <script type="text/javascript" src="js/external/jquery-3.3.1.min.js"></script>
     <style>
         * {
-        margin: 0;
-        padding: 0;
-        text-align: center;
-        font-family: Roboto, Arial, Helvetica, sans-serif;
-        user-select: none;
-        -webkit-user-select: none;
-    }
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-family: Roboto, Arial, Helvetica, sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
+        }
 
-    #page-content {
-        width: 100vw;
-        height: 100vh;
-        position:fixed;
-        top:0;
-        left:0;
-        background-color: lightyellow;
-    }
+        #page-content {
+            width: 100vw;
+            height: 100vh;
+            position:fixed;
+            top:0;
+            left:0;
+            background-color: lightyellow;
+        }
 
         /*MAP STUFF*/
         #map {
@@ -64,16 +64,37 @@
 <div id="scripts"></div>
 
 <script>
-    //a sample object with which to test different templates:
-    var user = {name: 'bob', id:33, color: 'blue', position: {lat:55.8642, lng: -4.2518},
-                routes: [
-                    {name: "work", origin: {lat:55.4642, lng: -4.2518}, destination:{lat:55.8642, lng: -4.2418}},
-                    {name: "rob's house", origin: {lat:55.4642, lng: -4.2518}, destination:{lat:55.8642, lng: -4.2418}}
-                ]};
+    /**
+     * the user variable is available to any piece of javascript in the application
+     *
+     * It's data can be used in any html template by using the mustache syntax, eg {{name}} in a piece of html
+     *
+     * The data will be fetched and stored in the user variable during login. Here is an example of the data available
+     */
+    var user = {name: 'bob', xp: 250,
+        routes: [
+            {name: "work", origin: {lat:55.4642, lng: -4.2518}, destination:{lat:55.8642, lng: -4.2418}},
+            {name: "rob's house", origin: {lat:55.4642, lng: -4.2518}, destination:{lat:55.8642, lng: -4.2418}}
+        ]};
+
+
 
     //document ready in JQuery is like window on load in JS - it tells you when everything's ready to go
     $('document').ready(function(){
-        loadTemplate('login', true);
+        //we start by checking if the user is already logged in
+        $.ajax({url: 'php/signin.php', success: function(response){
+            if (response.username){// login was successful
+                user.name = response.username;
+                user.routes = response.routes;
+                user.xp = response.xp;
+                loadTemplate('mainpage');
+            }
+            else {
+                //not logged in this session, so redirect to login
+                loadTemplate('login', true);
+            }
+        }});
+
     });
 
     /**

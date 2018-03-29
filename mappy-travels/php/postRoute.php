@@ -15,7 +15,7 @@ if (!isset($_SESSION['username'])){
 }
 
 if(isset($_POST['username']) && isset($_POST['route'])){
-    $sql = "INSERT INTO `RoutesToUsers`(`id`, `UserID`, `Route`, `Worth`) VALUES (0,?,?,250)";
+    $sql = "INSERT INTO `RoutesToUsers`(`id`, `UserID`, `Route`) VALUES (0,?,?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $_POST['username'], $_POST['route']);
     $stmt->execute();
