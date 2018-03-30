@@ -14,28 +14,37 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="mappy.css">
     <link rel="stylesheet" href="font/fontawesome-all.css">
+    <link rel="stylesheet" href="mdl/material.css">
+    <script src="mdl/material.js"></script>
 
     <title>My Account</title>
 </head>
 <body>
-    <div class="row homenavbar">
-        <div class="col-sm-9">
-            <h1>My Account</h1>
-        </div>
-        <div class="col-sm-3">
-            <button id = "home"><i class="fas fa-home"></i></button>
+
+<div class="row mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="mdl-layout__header mdl-color--yellow-A100">
+        <div class="mdl-layout__header-row mdl-color-text--indigo-400">
+            <div class="col-sm-9">
+                My Account
+            </div>
+            <div class="col-sm-3 icon-col">
+                <button id = "home" class="mdl-button mdl-js-button mdl-button--icon"><i class="fas fa-home"></i></button>
+            </div>
         </div>
     </div>
+</div>
 
+<div class="mdl-layout__content">
     <div class="row">
         <div class="col-sm-4">
-           <img src="img/ped.png">
+            <img src="img/ped.png">
         </div>
         <div class="col-sm-8">
-            <p>email: adx.er@add.com</p>
-            <p>password: reset</p>
+            email: adx.er@add.com
+            password: reset
         </div>
     </div>
+</div>
 
 </body>
 </html>

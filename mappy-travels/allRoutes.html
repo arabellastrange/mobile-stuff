@@ -21,39 +21,54 @@
 </head>
 <body>
 
-<div class="row navbar">
-    <div class="col-sm-9">
-        <h1>All Routes</h1>
-    </div>
-    <div class="col-sm-3">
-        <button id = "home"><i class="fas fa-home"></i></button>
+
+<div class="row mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="mdl-layout__header mdl-color--yellow-A100">
+        <div class="mdl-layout__header-row mdl-color-text--indigo-400">
+            <div class="col-sm-9">
+                All Routes
+            </div>
+            <div class="col-sm-3 icon-col">
+                <button id = "home" class="mdl-button mdl-js-button mdl-button--icon"><i class="fas fa-home"></i></button>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-9">
-        <a href="#">Route 1</a>
+<div class="mdl-layout__content">
+    <div class="row">
+        <div class="col-sm-9">
+            <a href="#">Route 1</a>
+        </div>
+        <div class="col-sm-3">
+           45 min
+        </div>
     </div>
-    <div class="col-sm-3">
-        <p>45 min</p>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-sm-9">
-        <a href="#">Weekend</a>
+    <div class="row">
+        <div class="col-sm-9">
+            <a href="#">Weekend</a>
+        </div>
+        <div class="col-sm-3">
+            50 min
+        </div>
     </div>
-    <div class="col-sm-3">
-        <p>50 min</p>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-sm-9">
-        <a href="#">City Center</a>
+    <div class="row">
+        <div class="col-sm-9">
+            <a href="#">City Center</a>
+        </div>
+        <div class="col-sm-3">
+            27 min
+        </div>
     </div>
-    <div class="col-sm-3">
-        <p>27 min</p>
+
+    <div class="row">
+        <div class="col-sm-12 call-to-action">
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <i class="material-icons">add</i>
+            </button>
+        </div>
     </div>
 </div>
 

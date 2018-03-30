@@ -14,45 +14,55 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="mappy.css">
     <link rel="stylesheet" href="font/fontawesome-all.css">
+    <link rel="stylesheet" href="mdl/material.css">
+    <script src="mdl/material.js"></script>
 
     <title>My Route</title>
 </head>
 <body>
 
-    <div class="row navbar">
-        <div class="col-sm-9">
-            <h1>My Route</h1>
-        </div>
-        <div class="col-sm-3">
-            <!-- add font awesome icons -->
-            <button id = "home"><i class="fas fa-home"></i></button>
+<div class="row mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="mdl-layout__header mdl-color--yellow-A100">
+        <div class="mdl-layout__header-row mdl-color-text--indigo-400">
+            <div class="col-sm-9">
+                My Route
+            </div>
+            <div class="col-sm-3 icon-col">
+                <button id = "home" class="mdl-button mdl-js-button mdl-button--icon"><i class="fas fa-home"></i></button>
+            </div>
         </div>
     </div>
+</div>
 
+<div class="mdl-layout__content map-body">
     <div class="row map">
         <div class="col-sm-12">
             <!-- add map -->
         </div>
     </div>
+</div>
 
-    <div class="row footer">
-        <div class="col-sm-9">
-            <p>XP reward: 200</p>
-        </div>
-        <div class="col-sm-3">
-            <button>Start</button>
-        </div>
+<footer class="mdl-mini-footer">
+    <div class="col-sm-9">
+       XP reward: 200
     </div>
+    <div class="col-sm-3">
+        <!--  accept or start or finish buton here -->
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id = "routeAction">Start</button>
+    </div>
+</footer>
 
-    <div class="row nameoverlay">
-        <div class="col-sm-12">
-            <h3>Name route: </h3>
-            <form id="nameform">
-                <input type="text" name="routename">
-            </form>
-            <button>Name</button>
-        </div>
+<dialog class="mdl-dialog">
+    <h4 class="mdl-dialog__title">Name Route</h4>
+    <div class="mdl-dialog__content">
+        <form id="nameform">
+            <input type="text" name="routename">
+        </form>
     </div>
+    <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button">Name</button>
+    </div>
+</dialog>
 
 </body>
 </html>
