@@ -32,7 +32,7 @@ $prizes = array();
     $pdsql = "SELECT `PrizeName`,`PointsRequired`,`PrizePic` FROM `MappyPrizes`";
     $result = mysqli_query($conn, $pdsql);
     while(($pdrow = mysqli_fetch_assoc($result))){
-        array_push($prizes, $pdrow);
+        array_merge($prizes, $pdrow);
     }
 
 
