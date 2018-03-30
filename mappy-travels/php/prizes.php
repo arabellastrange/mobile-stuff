@@ -16,31 +16,37 @@ $prizes = array();
     $json = Array();
 
     $username = "a";
+    echo $username;
+
+//    $username = $_SESSION['username'];
 
     $pointsql = "SELECT `UserXP` FROM `MappyUsers` WHERE `UserID` = '$username'";
-    $points = mysqli_query($conn, $pointsql);
+    $pointResult = mysqli_query($conn, $pointsql);
+    $points = mysqli_fetch_assoc($pointResult);
+    print_r($points);
 
     $sql = "SELECT `PrizeID` FROM `PrizesToUsers` WHERE `UserID` = '$username'";
     $result = mysqli_query($conn, $sql);
     if($result) {
         while (($row = mysqli_fetch_assoc($result))) {
-            array_push($userPrizes, $row);
+            $userPrizes[] = $row;
         }
-        $json["userPrizes"] = (array)($userPrizes);
     }
+    print_r($userPrizes);
 
     $pdsql = "SELECT `PrizeName`,`PointsRequired`,`PrizePic` FROM `MappyPrizes`";
     $result = mysqli_query($conn, $pdsql);
     while(($pdrow = mysqli_fetch_assoc($result))){
-        array_merge($prizes, $pdrow);
+        $prizes[] = array_values($pdrow);
     }
+    print_r($prizes);
 
-
-    $json["prizes"] = (array)($prizes);
-    $json['points'] = ($points);
-    //$json['msg'] = ("could not load prize array or user points");
+    $json['userPrizes'] = $userPrizes;
+    $json['prizes'] = $prizes;
+    $json['points'] = $points;
+    $json['msg'] = ("could not load prize array or user points");
     echo json_encode($json);
 //}
 //else{
-//   // echo json_encode(false);
+//    echo json_encode(false);
 //}
