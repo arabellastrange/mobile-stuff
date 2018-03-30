@@ -57,3 +57,16 @@ body{
     margin-top: 1em!important;
     height: calc(100vh - 4.5em)!important;
 }
+
+.home-screen{
+    padding: 0!important;
+    margin-top: 2em!important;
+}
+
+.icon-card{
+    min-height: 10em;
+    vertical-align: middle;
+    padding: 2em!important;
+    padding-top: 4em!important;
+    width: 100%!important;
+}
