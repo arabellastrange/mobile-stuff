@@ -75,4 +75,12 @@ body{
 }
 .action-page{
     background-color: lightgrey;
+    height: 100%;
+    text-align: center;
+    padding-top: 15em;
+    font-size: 3em;
+}
+
+.action-page h1{
+    font-size: 3em;
 }
