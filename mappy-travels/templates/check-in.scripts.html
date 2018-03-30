@@ -1,0 +1,79 @@
+<script>
+    var route = JSON.parse('{{paste}}'.replace(/&quot;/g,'"'));
+    var myLocation = {lat: 55.8642, lng:-4.2518};
+    var map, marker, radiusCircle, busStopOrigin, busStopDestination;
+    console.log(route);
+
+    function initMap() {
+        console.log('initialising map');
+        if (navigator.geolocation) {
+            console.log('got location');
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: myLocation,
+                zoom: 15
+            });
+            marker = new google.maps.Marker({
+                position: myLocation,
+                map: map,
+                title: "You are here - tap to update"
+            });
+            radiusCircle = new google.maps.Circle({
+                strokeColor: '#3333FF',
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: '#AAAAFF',
+                fillOpacity: 0.35,
+                map: map,
+                center: myLocation,
+                radius: 100
+            });
+            var icon = {
+                url: "images/bus-stop.png", // url
+                scaledSize: new google.maps.Size(50, 50), // scaled size
+                origin: new google.maps.Point(0,0), // origin
+                anchor: new google.maps.Point(0, 0) // anchor
+            };
+            busStopOrigin = new google.maps.Marker({
+                position: route.origin,
+                map: map,
+                title: route.origin.stopName,
+                icon: icon
+            });
+            busStopDestination = new google.maps.Marker({
+                position: route.destination,
+                map: map,
+                title: route.destination.stopName,
+                icon: icon
+            });
+            navigator.geolocation.getCurrentPosition(setPosition);
+        } else {
+            console.log('Location unavilable');
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+
+    function setPosition(position) {
+        console.log('updating position');
+        myLocation.lat = position.coords.latitude;
+        myLocation.lng = position.coords.longitude;
+        marker.setPosition(myLocation);
+        radiusCircle.setCenter(myLocation);
+        map.panTo(myLocation);
+
+        //changes the bounds of map to fit the user location & 2 bus stops markers
+        var bounds = new google.maps.LatLngBounds();
+        bounds.extend(marker.getPosition());
+        bounds.extend(busStopOrigin.getPosition());
+        bounds.extend(busStopDestination.getPosition());
+
+        map.fitBounds(bounds);
+
+        marker.addListener("click", function(){
+            console.log('marker tapped');
+            navigator.geolocation.getCurrentPosition(setPosition);
+        });
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRGwsaCzyyexZZlgf5UkrodRhlkydlKC8&libraries=places&callback=initMap"
+        async defer></script>

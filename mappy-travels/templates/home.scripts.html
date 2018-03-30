@@ -1,0 +1,31 @@
+<script>
+    function showRoute(name){
+        var route;
+        for (var x in user.routes){
+            if (user.routes[x].name === name){
+                //1 - clone the object
+                route = JSON.parse(JSON.stringify(user.routes[x]));
+                //2 - attach a function which will stringify the object, in order to copy it into the js template with mustache
+                route.paste = function(){
+                    return JSON.stringify(this);
+                };
+                //get the check-in template
+                $.get( 'templates/check-in.template.html', function( template ) {
+                    //use mustache to bind the route
+                    var html = Mustache.to_html(template, route);
+                    //insert the resulting html in the element with id="page-content"
+                    $('#page-content').html(html);
+
+                    //if the script flag is set, fetch the scripts too!
+                    $.get( 'templates/check-in.scripts.html', function( template ) {
+                        //use mustache to bind the template and data
+                        var html = Mustache.to_html(template, route);
+                        //insert the resulting html in the element with id="scripts"
+                        $('#scripts').html(html);
+                    });
+                });
+
+            }
+        }
+    }
+</script>

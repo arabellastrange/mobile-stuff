@@ -3,7 +3,8 @@
         {{name}}'s Routes
     </header>
     {{#routes}}
-        <button id="route-{{name}}"> {{name}} </button>
+        <div id="route-{{name}}" onclick="showRoute('{{name}}')"> {{name}} | {{origin.stopName}} - {{destination.stopName}} | {{xp}}</div>
+        <hr>
     {{/routes}}
 {{/routes.length}}
 {{^routes.length}}

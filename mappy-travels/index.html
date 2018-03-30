@@ -87,7 +87,7 @@
                 user.name = response.username;
                 user.routes = response.routes;
                 user.xp = response.xp;
-                loadTemplate('mainpage');
+                loadTemplate('home', true);
             }
             else {
                 //not logged in this session, so redirect to login

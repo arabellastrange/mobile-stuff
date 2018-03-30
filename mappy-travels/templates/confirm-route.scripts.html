@@ -27,7 +27,7 @@
                 }
                 else {
                     user.routes.push(route);
-                    loadTemplate('mainpage');
+                    loadTemplate('home', true);
                 }
             },
             error: function( jqXhr, textStatus, errorThrown ){
@@ -85,8 +85,6 @@
             title: "destination",
             position: destination
         }));
-
-        console.log(origin, destination);
 
         //changes the bounds of map to fit the two markers
         var bounds = new google.maps.LatLngBounds();
