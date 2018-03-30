@@ -50,6 +50,9 @@ body{
 
 .call-to-action{
     text-align: right;
+    bottom: 10%;
+    position: absolute;
+    right: 5%;
 }
 
 .map-body{
@@ -69,4 +72,7 @@ body{
     padding: 2em!important;
     padding-top: 4em!important;
     width: 100%!important;
+}
+.action-page{
+    background-color: lightgrey;
 }
