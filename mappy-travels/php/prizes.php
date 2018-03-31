@@ -34,4 +34,6 @@ $conn->close();
 
 $json['prizes'] = $outp;
 
+$json['msg'] = "Sorry, there has been an error.";
+
 echo json_encode($json);

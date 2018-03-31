@@ -10,13 +10,11 @@
 
         request.done(function (response, textStatus, jqXHR) {
             console.log(response);
-            if(response.points && response.prizes){
-               var points = response.points;
-               var prizes = response.prizes;
-               var userPrizes = response.userPrizes;
-               console.log(points);
+            if(response.prizes){
+               var prizes = JSON.parse(response.prizes);
+               var prizesToUsers = response.ptu;
                console.log(prizes);
-               console.log(userPrizes);
+               fillRows(prizes, prizesToUsers);
             }
             else{
                 $('#error-message').html(response.msg);
@@ -32,4 +30,15 @@
             );
 
         });
+
+        function fillRows(prizes, prizesToUsers) {
+            var prizesLength = prizes.length;
+            var ptuLength =  prizesToUsers.length;
+            for (var i = 0; i < prizesLength; i++){
+                document.getElementById('prizes').innerHTML += prizes[i]["PrizeName"];
+                document.getElementById('prizes').innerHTML += '</br>'
+            }
+        }
+
+
 </script>

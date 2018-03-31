@@ -53,7 +53,7 @@
                 //successful login
                 user.name = response.username;
                 user.routes = response.routes;
-                loadTemplate('home', true);
+                loadTemplate('prizes', true);
             }
             else {
                 $('#error-message').html(response.msg);
