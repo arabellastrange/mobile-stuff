@@ -1,22 +1,7 @@
 <script>
-
-    function validateForm(){
-        var uname = document.getElementById("username");
-        var pword = document.getElementById("password");
-        if (!uname.value){
-            $('#error-message').html("Username required");
-            return false;
-        }
-        if (!pword.value){
-            $('#error-message').html("Password required");
-            return false;
-        }
-        return true;
-    }
-
     var request;
 
-    $("#signin").submit(function(event){
+    $("#signup").submit(function(event){
 
         // Prevent default posting of form - put here to work in case of errors
         event.preventDefault();
@@ -29,7 +14,7 @@
         var $form = $(this);
 
         // Let's select and cache all the fields
-        var $inputs = $form.find("username, password");
+        var $inputs = $form.find("username, password, reenterpassword");
 
         // Serialize the data in the form
         var serializedData = $form.serialize();
@@ -41,7 +26,7 @@
 
         // Fire off the request to /form.php
         request = $.ajax({
-            url: "php/signin.php",
+            url: "php/signup.php",
             type: "post",
             data: serializedData
         });
@@ -49,18 +34,15 @@
         // Callback handler that will be called on success
         request.done(function (response, textStatus, jqXHR){
             // Log a message to the console
-            if (response.username){
-                //successful login
-                user.name = response.username;
-                user.routes = response.routes;
-                loadTemplate('home');
+            if (response){
+                //successful registration -> could potentially do auto login
+                loadTemplate('login');
             }
             else {
-                $('#error-message').html(response.msg);
-                //show error message
+                //todo show error message
             }
         });
-s
+
         // Callback handler that will be called on failure
         request.fail(function (jqXHR, textStatus, errorThrown){
             // Log the error to the console
@@ -78,5 +60,4 @@ s
         });
 
     });
-
 </script>

@@ -23,11 +23,11 @@
             success: function( data, textStatus, jQxhr ){
                 if (data.session_timeout){
                     console.log('session timeout');
-                    loadTemplate('login', true);
+                    loadTemplate('login');
                 }
                 else {
                     user.routes.push(route);
-                    loadTemplate('home', true);
+                    loadTemplate('home');
                 }
             },
             error: function( jqXhr, textStatus, errorThrown ){

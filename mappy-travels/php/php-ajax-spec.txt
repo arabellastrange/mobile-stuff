@@ -35,7 +35,7 @@ if (!isset($_SESSION['username'])){
 - all code handling the ajax response should check for session timeout and redirect to login, eg
 
 if (response.session_timeout){
-    loadTemplate('login', true);
+    loadTemplate('login');
 }
 else {
     //you've got data for this page
