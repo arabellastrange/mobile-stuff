@@ -51,6 +51,7 @@
             // Log a message to the console
             if (response.username){
                 //successful login
+                console.log(response);
                 user.name = response.username;
                 user.routes = response.routes;
                 loadTemplate('home');
@@ -60,7 +61,7 @@
                 //show error message
             }
         });
-s
+
         // Callback handler that will be called on failure
         request.fail(function (jqXHR, textStatus, errorThrown){
             // Log the error to the console
