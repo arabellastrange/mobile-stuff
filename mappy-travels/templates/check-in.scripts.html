@@ -2,6 +2,8 @@
     var route = JSON.parse('{{paste}}'.replace(/&quot;/g,'"'));
     var myLocation = {lat: 55.8642, lng:-4.2518};
     var map, marker, radiusCircle, busStopOrigin, busStopDestination;
+    var checkedInFlag = false;
+    var acceptedDistance = 1000;
     console.log(route);
 
     function initMap() {
@@ -25,7 +27,7 @@
                 fillOpacity: 0.35,
                 map: map,
                 center: myLocation,
-                radius: 100
+                radius: acceptedDistance
             });
             var icon = {
                 url: "images/bus-stop.png", // url
@@ -52,10 +54,98 @@
         }
     }
 
+    function redeemXP(){
+        $.post("php/routeCompleted.php",
+            {
+                username: user.name,
+                xp: route.xp
+            },
+            function(data, status){
+                console.log("Data: " + data + "\nStatus: " + status);
+                //give message and go back to home page
+                user.xp += route.xp;
+                $('#message').html("Congrats, you've gained " + route.xp + " XP!");
+                setTimeout(function(){
+                    loadTemplate('home');
+                }, 1500);
+            }).fail(function(){
+            console.log("Fail");
+        });
+    }
+
+    function checkIn(){
+        var distanceOrigin = calculateDistance(myLocation, route.origin);
+        var distanceDestination = calculateDistance(myLocation, route.destination);
+        console.log('Checking in...');
+        if (checkedInFlag){
+            if (route.origin.checkedIn === true){
+                if (distanceDestination <= acceptedDistance){
+                    //redeem xp
+                    //submit xp gains to database
+                    redeemXP();
+                }
+                else {
+                    $('#message').html("You're not quite close enough to " + route.destination.stopName);
+                }
+            }
+            else {
+                //checked in at destination
+                if (distanceOrigin <= acceptedDistance){
+                    //redeem xp
+                    //submit xp gains to database
+                    redeemXP();
+                }
+                else {
+                    $('#message').html("You're not quite close enough to " + route.origin.stopName);
+                }
+            }
+        }
+        else { // first check in stop
+            if (distanceOrigin < distanceDestination){
+                //closer to "origin" stop
+                if (distanceOrigin <= acceptedDistance){
+                    //checking in at origin bus stop
+                    checkedInFlag = true;
+                    route.origin.checkedIn = true;
+                    //todo change origin icon
+                    busStopOrigin.setMap(null);
+
+                    //fixme test code forces position to change
+                    //setPosition({coords: {latitude:route.destination.lat, longitude: route.destination.lng}});
+
+                }
+                else {
+                    $('#message').html("You're not quite close enough to " + route.origin.stopName);
+                }
+            }
+            else {
+                //closer to destination
+                if (distanceDestination < acceptedDistance){
+                    //checking in at destination bus stop
+                    checkedInFlag = true;
+                    route.destination.checkedIn = true;
+                    //todo change destination icon
+                    busStopDestination.setMap(null);
+
+                    //fixme test code forces position to change
+                    //setPosition({coords: {latitude: route.origin.lat, longitude: route.origin.lng}})
+                }
+                else {
+                    //show message to say not close enough
+                    $('#message').html("You're not quite close enough to " + route.destination.stopName);
+                }
+            }
+        }
+    }
+
     function setPosition(position) {
-        console.log('updating position');
+        console.log(position);
         myLocation.lat = position.coords.latitude;
         myLocation.lng = position.coords.longitude;
+
+        acceptedDistance = position.coords.accuracy;
+        radiusCircle.setRadius(acceptedDistance);
+
         marker.setPosition(myLocation);
         radiusCircle.setCenter(myLocation);
         map.panTo(myLocation);
@@ -73,6 +163,28 @@
             navigator.geolocation.getCurrentPosition(setPosition);
         });
     }
+
+    function calculateDistance(point1, point2){
+        var R = 6371e3; // metres
+        var lat1 = toRadians(point1.lat);
+        var lat2 = toRadians(point2.lat);
+        var deltaLat = toRadians(point2.lat-point1.lat);
+        var deltaLon = toRadians(point2.lng-point1.lng);
+
+        var a = Math.sin(deltaLat/2) * Math.sin(deltaLat/2) +
+            Math.cos(lat1) * Math.cos(lat2) *
+            Math.sin(deltaLon/2) * Math.sin(deltaLon/2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+        return R * c;
+    }
+
+    function toRadians(degrees)
+    {
+        var pi = Math.PI;
+        return degrees * (pi/180);
+    }
+
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRGwsaCzyyexZZlgf5UkrodRhlkydlKC8&libraries=places&callback=initMap"
