@@ -24,6 +24,7 @@ $('document').ready(function(){
             user.name = response.username;
             user.routes = response.routes;
             user.xp = response.xp;
+            console.log(user);
             loadTemplate('home');
         }
         else {
