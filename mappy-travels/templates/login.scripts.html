@@ -53,14 +53,14 @@
                 //successful login
                 user.name = response.username;
                 user.routes = response.routes;
-                loadTemplate('home');
+                user.xp = response.xp;
+                loadTemplate('prizes');
             }
             else {
                 $('#error-message').html(response.msg);
                 //show error message
             }
         });
-s
         // Callback handler that will be called on failure
         request.fail(function (jqXHR, textStatus, errorThrown){
             // Log the error to the console

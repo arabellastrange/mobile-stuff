@@ -36,4 +36,6 @@ $json['prizes'] = $outp;
 
 $json['msg'] = "Sorry, there has been an error.";
 
+$json['username'] = $username;
+
 echo json_encode($json);

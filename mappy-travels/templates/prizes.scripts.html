@@ -14,7 +14,9 @@
                var prizes = JSON.parse(response.prizes);
                var prizesToUsers = response.ptu;
                console.log(prizes);
-               fillRows(prizes, prizesToUsers);
+               console.log(user.xp);
+               showProgress();
+               fillRows(prizes, prizesToUsers, user);
             }
             else{
                 $('#error-message').html(response.msg);
@@ -31,14 +33,41 @@
 
         });
 
-        function fillRows(prizes, prizesToUsers) {
+        function showProgress(){
+            document.getElementById('points').innerHTML += '<p>Your Points: '+user.xp+'</p>';
+        }
+
+        function fillRows(prizes, prizesToUsers, user) {
             var prizesLength = prizes.length;
             var ptuLength =  prizesToUsers.length;
             for (var i = 0; i < prizesLength; i++){
-                document.getElementById('prizes').innerHTML += prizes[i]["PrizeName"];
+                var redeemed = false;
+                var src = 'data:image/jpeg;base64,' + hexToBase64(prizes[i]["PrizePic"]);
+                document.getElementById('prizes').innerHTML += '<img src="'+src+'"/>';
+                document.getElementById('prizes').innerHTML += prizes[i]["PrizeName"] + '    ' + prizes[i]["PointsRequired"] + 'pts    ';
+                if(ptuLength > 0){
+                    for(var j = 0; j < ptuLength; j++){
+                        if (prizes[i]["PrizeName"] === prizesToUsers["PrizeID"] && user.name === prizesToUsers["UserID"]){
+                            document.getElementById('prizes').innerHTML += '<button type="button" disabled>Redeemed</button>';
+                            redeemed = true;
+                        }
+                    }
+                }
+                if (redeemed === false){
+                    if(user.xp >= prizes[i]["PointsRequired"]) {
+                        document.getElementById('prizes').innerHTML += '<button type="button">Redeem</button>';
+                    }
+                    else{
+                        document.getElementById('prizes').innerHTML += '<button type="button" disabled>Redeem</button>';
+                    }
+                }
                 document.getElementById('prizes').innerHTML += '</br>'
             }
         }
+
+    function hexToBase64(str) {
+        return btoa(String.fromCharCode.apply(null, str.replace(/\r|\n/g, "").replace(/([\da-fA-F]{2}) ?/g, "0x$1 ").replace(/ +$/, "").split(" ")));
+    }
 
 
 </script>
