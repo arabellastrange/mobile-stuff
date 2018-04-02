@@ -3,7 +3,7 @@
     var myLocation = {lat: 55.8642, lng:-4.2518};
     var map, marker, radiusCircle, busStopOrigin, busStopDestination;
     var checkedInFlag = false;
-    var acceptedDistance = 500;
+    var acceptedDistance = 1000;
     console.log(route);
 
     function initMap() {
@@ -84,6 +84,9 @@
                     //submit xp gains to database
                     redeemXP();
                 }
+                else {
+                    $('#message').html("You're not quite close enough to " + route.destination.stopName);
+                }
             }
             else {
                 //checked in at destination
@@ -91,6 +94,9 @@
                     //redeem xp
                     //submit xp gains to database
                     redeemXP();
+                }
+                else {
+                    $('#message').html("You're not quite close enough to " + route.origin.stopName);
                 }
             }
         }
@@ -105,11 +111,11 @@
                     busStopOrigin.setMap(null);
 
                     //fixme test code forces position to change
-                    setPosition({coords: {latitude:route.destination.lat, longitude: route.destination.lng}});
+                    //setPosition({coords: {latitude:route.destination.lat, longitude: route.destination.lng}});
 
                 }
                 else {
-                    //show a message to say not close enough
+                    $('#message').html("You're not quite close enough to " + route.origin.stopName);
                 }
             }
             else {
@@ -118,14 +124,15 @@
                     //checking in at destination bus stop
                     checkedInFlag = true;
                     route.destination.checkedIn = true;
-                    //todo destination icon
+                    //todo change destination icon
                     busStopDestination.setMap(null);
 
                     //fixme test code forces position to change
-                    setPosition({coords: {latitude: route.origin.lat, longitude: route.origin.lng}})
+                    //setPosition({coords: {latitude: route.origin.lat, longitude: route.origin.lng}})
                 }
                 else {
                     //show message to say not close enough
+                    $('#message').html("You're not quite close enough to " + route.destination.stopName);
                 }
             }
         }
@@ -135,6 +142,9 @@
         console.log(position);
         myLocation.lat = position.coords.latitude;
         myLocation.lng = position.coords.longitude;
+
+        acceptedDistance = position.coords.accuracy;
+        radiusCircle.setRadius(acceptedDistance);
 
         marker.setPosition(myLocation);
         radiusCircle.setCenter(myLocation);
