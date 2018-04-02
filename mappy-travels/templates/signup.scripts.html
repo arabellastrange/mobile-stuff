@@ -1,4 +1,27 @@
 <script>
+	function validateForm(){
+        var uname = document.getElementById("username");
+        var pword = document.getElementById("password");
+        var repword = document.getElementById("reenterpassword");
+        if (!uname.value){
+            $('#error-message').html("Username required");
+            return false;
+        }
+        if (!pword.value){
+            $('#error-message').html("Password required");
+            return false;
+        }
+		if (!repword.value){
+            $('#error-message').html("Re-enter password required");
+            return false;
+        }
+		if (pword.value != repword.value){
+            $('#error-message').html("Passwords did not match, please enter again.");
+            return false;
+        }
+        return true;
+    }
+
     var request;
 
     $("#signup").submit(function(event){
@@ -39,7 +62,7 @@
                 loadTemplate('login');
             }
             else {
-                //todo show error message
+                $('#error-message').html(response.msg);
             }
         });
 
@@ -48,7 +71,7 @@
             // Log the error to the console
             console.error(
                 "The following error occurred: "+
-                textStatus, errorThrown
+                textStatus +" "+errorThrown
             );
         });
 
