@@ -5,11 +5,17 @@
  *
  * The data will be fetched and stored in the user variable during login. Here is an example of the data available
  */
-var user = {name: 'bob', xp: 250,
-    routes: [
-        {name: "work", origin: {lat:55.4642, lng: -4.2518}, destination:{lat:55.8642, lng: -4.2418}},
-        {name: "rob's house", origin: {lat:55.4642, lng: -4.2518}, destination:{lat:55.8642, lng: -4.2418}}
-    ]};
+var user = {name:"Bob", xp:250,
+    routes:[
+        {origin:{"stopName":"Central Station Forecourt","lat":55.86051,"lng":-4.2580399999999},
+            destination:{"stopName":"Broomlea School","lat":55.87402,"lng":-4.32318},
+            name:"Work",
+            xp:250},
+        {origin:{stopName:"Broomlea School",lat:55.87402,lng:-4.32318},
+            destination:{stopName:"Xscape Centre",lat:55.87792,lng:-4.37264},
+            name:"Laser tag",
+            xp:250}]
+};
 
 
 /**
@@ -18,13 +24,20 @@ var user = {name: 'bob', xp: 250,
  * This is the point of entry for our application, like a main method in Java
  */
 $('document').ready(function(){
+
+    /**
+     * To load a template for testing, comment out the ajax call and load your template instead.
+     *
+     * (eg loadTemplate('
+     */
+
     //we start by checking if the user is already logged in
     $.ajax({url: 'php/signin.php', success: function(response){
         if (response.username){// login was successful
             user.name = response.username;
             user.routes = response.routes;
-            user.xp = response.xp;
-            console.log(user);
+            user.xp = parseInt(response.xp);
+            console.log(JSON.stringify(user));
             loadTemplate('home');
         }
         else {

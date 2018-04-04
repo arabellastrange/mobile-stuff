@@ -47,6 +47,9 @@
                 title: route.destination.stopName,
                 icon: icon
             });
+            //start at the origin for testing
+            //setPosition({coords: {latitude: route.origin.lat, longitude: route.origin.lng, accuracy: 100}})
+            //or get your real location
             navigator.geolocation.getCurrentPosition(setPosition);
         } else {
             console.log('Location unavilable');
@@ -55,13 +58,13 @@
     }
 
     function redeemXP(){
+        $('#checkIn').off('click');
         $.post("php/routeCompleted.php",
             {
                 username: user.name,
                 xp: route.xp
             },
             function(data, status){
-                console.log("Data: " + data + "\nStatus: " + status);
                 //give message and go back to home page
                 user.xp += route.xp;
                 $('#message').html("Congrats, you've gained " + route.xp + " XP!");
@@ -69,6 +72,7 @@
                     loadTemplate('home');
                 }, 1500);
             }).fail(function(){
+            $('#message').html('There was an error');
             console.log("Fail");
         });
     }
@@ -111,7 +115,7 @@
                     busStopOrigin.setMap(null);
 
                     //fixme test code forces position to change
-                    //setPosition({coords: {latitude:route.destination.lat, longitude: route.destination.lng}});
+                    //setPosition({coords: {latitude:route.destination.lat, longitude: route.destination.lng, accuracy:100}});
 
                 }
                 else {
@@ -128,7 +132,7 @@
                     busStopDestination.setMap(null);
 
                     //fixme test code forces position to change
-                    //setPosition({coords: {latitude: route.origin.lat, longitude: route.origin.lng}})
+                    //setPosition({coords: {latitude: route.origin.lat, longitude: route.origin.lng, accuracy: 100}})
                 }
                 else {
                     //show message to say not close enough
@@ -184,6 +188,8 @@
         var pi = Math.PI;
         return degrees * (pi/180);
     }
+
+    $('#checkIn').click(checkIn);
 
 </script>
 

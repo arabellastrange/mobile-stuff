@@ -54,8 +54,8 @@
                 console.log(response);
                 user.name = response.username;
                 user.routes = response.routes;
-                user.xp = response.xp;
-                loadTemplate('prizes');
+                user.xp = parseInt(response.xp);
+                loadTemplate('home');
             }
             else {
                 $('#error-message').html(response.msg);
