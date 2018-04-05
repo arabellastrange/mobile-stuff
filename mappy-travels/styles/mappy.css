@@ -85,3 +85,42 @@ body{
 .action-page h1{
     font-size: 3em;
 }
+
+
+.login{
+    line-height: 3em!important;
+    font-size: 3em!important;
+    margin-top: 0!important;
+    padding: 0!important;
+    background-color: deeppink;
+    color: white;
+}
+
+.center-content{
+    padding-left: 15%;
+    padding-right: 15%;
+    line-height: 3em;
+}
+
+.welcome-header{
+    font-size: 3em;
+    line-height: 1em;
+    margin-top: 3em!important;
+}
+
+.login-button{
+    min-width: 6em!important;
+}
+
+.label-row{
+    text-align: left;
+}
+
+.login input{
+    border: 0.1em;
+    border-color: #0d47a1;
+    border-style: solid;
+    width: 100%;
+    margin-bottom: 0.8em;
+    line-height: 2em;
+}
