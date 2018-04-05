@@ -2,71 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="805aa698-ae90-4742-a0f7-fd9240f6404d" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/app-city.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/webServers.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/.idea/misc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/.idea/workspace.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/font/fontawesome-all.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/font/fontawesome-all.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/font/material.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/font/webfonts/fa-brands-400.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/font/webfonts/fa-brands-400.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/font/webfonts/fa-brands-400.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/font/webfonts/fa-brands-400.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/font/webfonts/fa-brands-400.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/font/webfonts/fa-regular-400.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/font/webfonts/fa-regular-400.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/font/webfonts/fa-regular-400.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/font/webfonts/fa-regular-400.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/font/webfonts/fa-regular-400.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/font/webfonts/fa-solid-900.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/font/webfonts/fa-solid-900.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/font/webfonts/fa-solid-900.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/font/webfonts/fa-solid-900.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/font/webfonts/fa-solid-900.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/img/bus-icon.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/img/bus_pointer.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/img/hmlogo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/img/icon-routeMap.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/img/mclogo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/img/starlogo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/mappy-travels.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/styles/bootstrap/css/bootstrap-theme.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/styles/bootstrap/css/bootstrap-theme.css.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/styles/bootstrap/css/bootstrap-theme.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/styles/bootstrap/css/bootstrap-theme.min.css.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/styles/bootstrap/css/bootstrap.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/styles/bootstrap/css/bootstrap.css.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/styles/bootstrap/css/bootstrap.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/styles/bootstrap/css/bootstrap.min.css.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/styles/mappy.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/styles/mdl/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/styles/mdl/bower.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/styles/mdl/material.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/styles/mdl/material.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/styles/mdl/material.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/styles/mdl/material.min.css.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/styles/mdl/material.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/styles/mdl/material.min.js.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/styles/mdl/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/templates/Login.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/templates/addRoute.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/templates/allRewards.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/templates/allRoutes.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/templates/home.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/templates/myAccount.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/templates/myRoute.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/templates/searchRoutes.html" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/mappy-travels/images/ped.png" afterPath="$PROJECT_DIR$/mappy-travels/images/ped.png" />
-      <change beforePath="$PROJECT_DIR$/mappy-travels/img/ped.png" afterPath="$PROJECT_DIR$/mappy-travels/img/ped.png" />
-      <change beforePath="$PROJECT_DIR$/mappy-travels/index.html" afterPath="$PROJECT_DIR$/mappy-travels/index.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mappy-travels/templates/xyz.scripts.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/mappy-travels/js/main.js" afterPath="$PROJECT_DIR$/mappy-travels/js/main.js" />
+      <change beforePath="$PROJECT_DIR$/mappy-travels/styles/global.css" afterPath="$PROJECT_DIR$/mappy-travels/styles/global.css" />
+      <change beforePath="$PROJECT_DIR$/mappy-travels/styles/mappy.css" afterPath="$PROJECT_DIR$/mappy-travels/styles/mappy.css" />
+      <change beforePath="$PROJECT_DIR$/mappy-travels/templates/Login.html" afterPath="$PROJECT_DIR$/mappy-travels/templates/xyz.template.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -77,16 +18,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mappy-travels/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="home.template.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mappy-travels/templates/home.template.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -97,31 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Login.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mappy-travels/templates/Login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mappy-travels/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="myAccount.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mappy-travels/templates/myAccount.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="17" selection-end-column="43" />
+            <state relative-caret-position="170">
+              <caret line="29" column="65" lean-forward="false" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -130,8 +41,38 @@
       <file leaf-file-name="material.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mappy-travels/styles/mdl/material.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20536">
-              <caret line="1208" column="28" lean-forward="false" selection-start-line="1208" selection-start-column="28" selection-end-line="1208" selection-end-column="28" />
+            <state relative-caret-position="190">
+              <caret line="3039" column="0" lean-forward="true" selection-start-line="3039" selection-start-column="0" selection-end-line="3039" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="xyz.template.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mappy-travels/templates/xyz.template.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="40" column="111" lean-forward="false" selection-start-line="40" selection-start-column="111" selection-end-line="40" selection-end-column="111" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myRoute.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mappy-travels/templates/myRoute.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="50" column="87" lean-forward="true" selection-start-line="50" selection-start-column="87" selection-end-line="50" selection-end-column="106" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="global.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mappy-travels/styles/global.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="14" column="11" lean-forward="true" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -140,18 +81,28 @@
       <file leaf-file-name="mappy.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mappy-travels/styles/mappy.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="72" column="20" lean-forward="false" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
+            <state relative-caret-position="303">
+              <caret line="116" column="29" lean-forward="false" selection-start-line="116" selection-start-column="29" selection-end-line="116" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addRoute.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mappy-travels/templates/addRoute.html">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mappy-travels/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="31" lean-forward="false" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
+            <state relative-caret-position="-136">
+              <caret line="48" column="19" lean-forward="false" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="xyz.scripts.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mappy-travels/templates/xyz.scripts.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -160,7 +111,7 @@
       <file leaf-file-name="searchRoutes.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mappy-travels/templates/searchRoutes.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
+            <state relative-caret-position="170">
               <caret line="22" column="48" lean-forward="false" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
               <folding />
             </state>
@@ -192,6 +143,7 @@
       <find>.mdl-card</find>
       <find>fab</find>
       <find>.material-icons</find>
+      <find>white</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -215,7 +167,14 @@
         <option value="$PROJECT_DIR$/mappy-travels/addRoute.html" />
         <option value="$PROJECT_DIR$/mappy-travels/mappy.css" />
         <option value="$PROJECT_DIR$/mappy-travels/index.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/mappy-travels/templates/home.html" />
+        <option value="$PROJECT_DIR$/mappy-travels/templates/Login.html" />
+        <option value="$PROJECT_DIR$/mappy-travels/js/main.js" />
+        <option value="$PROJECT_DIR$/mappy-travels/templates/xyz.scripts.html" />
+        <option value="$PROJECT_DIR$/mappy-travels/styles/global.css" />
+        <option value="$PROJECT_DIR$/mappy-travels/styles/mappy.css" />
+        <option value="$PROJECT_DIR$/mappy-travels/templates/xyz.template.html" />
       </list>
     </option>
   </component>
@@ -262,7 +221,27 @@
               <item name="app-city" type="b2602c69:ProjectViewProjectNode" />
               <item name="app-city" type="462c0819:PsiDirectoryNode" />
               <item name="mappy-travels" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="app-city" type="b2602c69:ProjectViewProjectNode" />
+              <item name="app-city" type="462c0819:PsiDirectoryNode" />
+              <item name="mappy-travels" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="external" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="app-city" type="b2602c69:ProjectViewProjectNode" />
+              <item name="app-city" type="462c0819:PsiDirectoryNode" />
+              <item name="mappy-travels" type="462c0819:PsiDirectoryNode" />
               <item name="styles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="app-city" type="b2602c69:ProjectViewProjectNode" />
+              <item name="app-city" type="462c0819:PsiDirectoryNode" />
+              <item name="mappy-travels" type="462c0819:PsiDirectoryNode" />
+              <item name="styles" type="462c0819:PsiDirectoryNode" />
+              <item name="mdl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="app-city" type="b2602c69:ProjectViewProjectNode" />
@@ -414,7 +393,7 @@
       <workItem from="1522056333875" duration="5551000" />
       <workItem from="1522404158069" duration="6144000" />
       <workItem from="1522430087743" duration="2322000" />
-      <workItem from="1522917708830" duration="1735000" />
+      <workItem from="1522917708830" duration="5725000" />
     </task>
     <task id="LOCAL-00001" summary="html page for every wireframe view">
       <created>1521837355607</created>
@@ -469,24 +448,26 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25685000" />
+    <option name="totallyTimeSpent" value="29675000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284553" sideWeight="0.4941435" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32357723" sideWeight="0.5204978" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3284553" sideWeight="0.511713" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3284553" sideWeight="0.48828697" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32357723" sideWeight="0.4795022" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32357723" sideWeight="0.4795022" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1830161" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23133236" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -500,7 +481,6 @@
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3284553" sideWeight="0.49121523" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -525,38 +505,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mappy-travels/templates/allRoutes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="69" lean-forward="false" selection-start-line="26" selection-start-column="69" selection-end-line="26" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mappy-travels/styles/mdl/material.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71434">
-          <caret line="4202" column="16" lean-forward="true" selection-start-line="4202" selection-start-column="16" selection-end-line="4202" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mappy-travels/templates/myRoute.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="69" lean-forward="false" selection-start-line="25" selection-start-column="69" selection-end-line="25" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mappy-travels/templates/searchRoutes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="48" lean-forward="true" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mappy-travels/styles/mappy.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="935">
@@ -814,50 +762,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mappy-travels/templates/myRoute.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="69" lean-forward="false" selection-start-line="25" selection-start-column="69" selection-end-line="25" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mappy-travels/styles/mdl/material.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20536">
-          <caret line="1208" column="28" lean-forward="false" selection-start-line="1208" selection-start-column="28" selection-end-line="1208" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mappy-travels/templates/myAccount.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="17" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mappy-travels/templates/addRoute.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="31" lean-forward="false" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mappy-travels/templates/searchRoutes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="48" lean-forward="false" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mappy-travels/styles/mappy.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="72" column="20" lean-forward="false" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -880,10 +788,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mappy-travels/templates/home.html">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        <state relative-caret-position="17">
+          <caret line="1" column="5" lean-forward="false" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mappy-travels/templates/myAccount.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="17" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mappy-travels/templates/searchRoutes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="22" column="48" lean-forward="false" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mappy-travels/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-136">
+          <caret line="48" column="19" lean-forward="false" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mappy-travels/templates/xyz.scripts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mappy-travels/templates/myRoute.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="50" column="87" lean-forward="true" selection-start-line="50" selection-start-column="87" selection-end-line="50" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mappy-travels/styles/global.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="11" lean-forward="true" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -896,10 +852,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mappy-travels/templates/Login.html">
+    <entry file="file://$PROJECT_DIR$/mappy-travels/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="170">
+          <caret line="29" column="65" lean-forward="false" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mappy-travels/styles/mappy.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="116" column="29" lean-forward="false" selection-start-line="116" selection-start-column="29" selection-end-line="116" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mappy-travels/styles/mdl/material.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="3039" column="0" lean-forward="true" selection-start-line="3039" selection-start-column="0" selection-end-line="3039" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mappy-travels/templates/xyz.template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="40" column="111" lean-forward="false" selection-start-line="40" selection-start-column="111" selection-end-line="40" selection-end-column="111" />
           <folding />
         </state>
       </provider>

@@ -85,3 +85,34 @@ body{
 .action-page h1{
     font-size: 3em;
 }
+
+form{
+    margin-top: 7%;
+    line-height: 3em;
+}
+
+.login{
+    line-height: 3em!important;
+    font-size: 3em!important;
+    margin-top: 0!important;
+    padding: 0!important;
+    background-color: deeppink;
+    color: white;
+}
+
+.center-content{
+    margin-top: 2em!important;
+    padding-left: 20%;
+    padding-right: 20%;
+    line-height: 3em;
+}
+
+.welcome-header{
+    font-size: 3em;
+    line-height: 1em;
+    margin-top: 3em!important;
+}
+
+.login-button{
+    min-width: 6em!important;
+}
