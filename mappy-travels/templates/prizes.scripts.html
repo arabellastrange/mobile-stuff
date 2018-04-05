@@ -1,74 +1,10 @@
 <script>
 
-    console.log("loaded");
+    console.log('hello world');
+    var prizes = '{{paste}}'.replace(/&quot;/g,'"')
+    console.log(prizes);
 
-        request = $.ajax({
-            url: "php/prizes.php",
-            type: "post",
-            dataType: "json"
-        });
 
-        request.done(function (response, textStatus, jqXHR) {
-            console.log(response);
-            if(response.prizes){
-               var prizes = JSON.parse(response.prizes);
-               var prizesToUsers = response.ptu;
-               console.log(prizes);
-               console.log(user.xp);
-               showProgress();
-               fillRows(prizes, prizesToUsers, user);
-            }
-            else{
-                $('#error-message').html(response.msg);
-                console.log("adbabdbadb");
-            }
-        });
-
-        request.fail(function (jqXHR, textStatus, errorThrown) {
-            //Log the error to the console
-            console.error(
-                "The following error occurred: "+
-                    textStatus, errorThrown, jqXHR
-            );
-
-        });
-
-        function showProgress(){
-            document.getElementById('points').innerHTML += '<p>Your Points: '+user.xp+'</p>';
-        }
-
-        function fillRows(prizes, prizesToUsers, user) {
-            console.log(prizes);
-            var prizesLength = prizes.length;
-            var ptuLength =  prizesToUsers.length;
-            for (var i = 0; i < prizesLength; i++){
-                var redeemed = false;
-                var src = 'data:image/jpeg;base64,' + hexToBase64(prizes[i]["PrizePic"]);
-                document.getElementById('prizes').innerHTML += '<img src="'+src+'"/>';
-                document.getElementById('prizes').innerHTML += prizes[i]["PrizeName"] + '    ' + prizes[i]["PointsRequired"] + 'pts    ';
-                if(ptuLength > 0){
-                    for(var j = 0; j < ptuLength; j++){
-                        if (prizes[i]["PrizeName"] === prizesToUsers["PrizeID"] && user.name === prizesToUsers["UserID"]){
-                            document.getElementById('prizes').innerHTML += '<button type="button" disabled>Redeemed</button>';
-                            redeemed = true;
-                        }
-                    }
-                }
-                if (redeemed === false){
-                    if(user.xp >= parseInt(prizes[i]["PointsRequired"])) {
-                        document.getElementById('prizes').innerHTML += '<button type="button">Redeem</button>';
-                    }
-                    else{
-                        document.getElementById('prizes').innerHTML += '<button type="button" disabled>Redeem</button>';
-                    }
-                }
-                document.getElementById('prizes').innerHTML += '</br>'
-            }
-        }
-
-    function hexToBase64(str) {
-        return btoa(String.fromCharCode.apply(null, str.replace(/\r|\n/g, "").replace(/([\da-fA-F]{2}) ?/g, "0x$1 ").replace(/ +$/, "").split(" ")));
-    }
 
 
 </script>
