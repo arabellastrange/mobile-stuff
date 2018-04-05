@@ -1,11 +1,51 @@
-<div id="confirm-bar">
-    <button onclick="loadTemplate('home')">Home</button>
 
-    <div id="message"></div>
-    <p>confirm route??</p>
-    <input id="route-name" type="text" oninput="nameUpdated()" onclick="this.select()" placeholder="Route name (eg. 'Work')" maxlength="20"/>
-    <button id="save-route" onclick="saveRoute()" disabled>confirm</button>
+<div class="row mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="mdl-layout__header mdl-color--yellow-A100">
+        <div class="mdl-layout__header-row mdl-color-text--indigo-400">
+            <div class="col-sm-9">
+                My Route
+            </div>
+            <div class="col-sm-3 icon-col">
+                <button id = "home" class="mdl-button mdl-js-button mdl-button--icon" onclick="loadTemplate('home')">
+                    <i class="fas fa-home"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="mdl-layout__content map-body" id="map">
+        <!--<div class="row map">-->
+            <!--<div class="col-sm-12">-->
+                <!--&lt;!&ndash; add map &ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+
+    <footer class="mdl-mini-footer">
+        <!--<div class="col-sm-9">-->
+            <!--XP reward: 200-->
+        <!--</div>-->
+        <div class="col-sm-3">
+            <!--  accept or start or finish buton here -->
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="confirm">Confirm</button>
+        </div>
+    </footer>
+
+    <dialog class="mdl-dialog" id="dialog">
+        <h4 class="mdl-dialog__title">Name Route</h4>
+        <div class="mdl-dialog__content">
+
+            <div id="message"></div>
+            <form id="nameform">
+                <input oninput="nameUpdated()" onclick="this.select()" placeholder="Route name (eg. 'Work')" maxlength="20"
+                        type="text" id="route-name" name="routename">
+            </form>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button id="save-route" onclick="saveRoute()" disabled type="button"
+                    class="mdl-button">Save Route</button>
+        </div>
+    </dialog>
+
+
 </div>
 
-
-<div id="map"></div>
