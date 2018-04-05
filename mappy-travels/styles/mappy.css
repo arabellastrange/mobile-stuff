@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../font/material.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+*{
+    padding: 0;
+    user-select: none;
+}
+
+.row{
+    margin: 0;
+}
+
+body{
+    height: 100vh;
+}
+
+.map{
+    min-height: 100%;
+    background: floralwhite;
+}
+
+.mdl-card{
+    width: 80%!important;
+    margin: 9%;
+}
+
+.icon-col{
+    text-align: center;
+}
+
+.call-to-action{
+    text-align: right;
+    bottom: 10%;
+    position: absolute;
+    right: 5%;
+}
+
+.map-body{
+    padding: 0!important;
+    margin-top: 1em!important;
+    height: calc(100vh - 4.5em)!important;
+}
+
+.home-screen{
+    padding: 0!important;
+    margin-top: 2em!important;
+}
+
+.icon-card{
+    min-height: 10em;
+    vertical-align: middle;
+    padding: 2em!important;
+    padding-top: 4em!important;
+    width: 100%!important;
+}
+
+.action-page{
+    background-color: lightgrey;
+    height: 100%;
+    text-align: center;
+    padding-top: 15em;
+    font-size: 3em;
+}
+
+.action-page h1{
+    font-size: 3em;
+}

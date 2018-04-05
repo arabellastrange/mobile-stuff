@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <title>Mappy-Travels</title>
+    <!-- Include JQuery -->
+    <script type="text/javascript" src="js/external/jquery-3.3.1.js"></script>
+    <!-- include global stylesheet(s) -->
+    <link rel="stylesheet" type="text/css" href="styles/global.css">
+    <meta name = "viewport" content="maximum-scale=1.0, user-scalable=no">
+    <meta name = "mobile-web-app-capable" content="yes" />
+    <meta name = "apple-mobile-web-app-capable" content="yes" />
+
+    <link rel="icon" size="192x192" href="img/bus-icon.svg">
+    <link rel = "apple-touch-icon" href="img/bus-icon.svg">
+    <link rel="shourtcut icon" href="img/bus-icon.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="mappy.css">
+    <link rel="stylesheet" href="font/fontawesome-all.css">
+    <link rel="stylesheet" href="mdl/material.css">
+    <script src="mdl/material.js"></script>
+
+    <title>Home</title>
+</head>
+<body>
+<div class="row mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="mdl-layout__header mdl-color--yellow-A100">
+        <div class="mdl-layout__header-row mdl-color-text--indigo-400">
+            <div class="col-sm-9">
+            </div>
+            <div class="col-sm-3 icon-col">
+                <button id = "settings" class="mdl-button mdl-js-button mdl-button--icon"><i class="fas fa-cog"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mdl-layout__content home-screen">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="mdl-card mdl-shadow--4dp">
+                <div class="row mdl-card__title">
+                    <h2 class="mdl-card__title-text">Time to work</h2>
+                </div>
+                <div class="row mdl-card__supporting-text">
+                    <div class="col-sm-8">
+                        <div class="mapicon">
+                            <img src="img/ped.png">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        45 min
+                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect">Start</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="mdl-card mdl-shadow--4dp">
+                <div class="row mdl-card__supporting-text icon-card">
+                    <div class="col-sm-4 icon-col">
+                        <button class="mdl-button mdl-js-button mdl-button--icon feat-reward"><i class="fas fa-cog"></i></button>
+                    </div>
+                    <div class="col-sm-4 icon-col">
+                        <button class="mdl-button mdl-js-button mdl-button--icon feat-reward"><i class="fas fa-cog"></i></button>
+                    </div>
+                    <div class="col-sm-4 icon-col">
+                        <button class="mdl-button mdl-js-button mdl-button--icon feat-reward"><i class="fas fa-cog"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="mdl-card mdl-shadow--4dp">
+                <div class="row mdl-card__supporting-text icon-card">
+                    <div class="col-sm-6 icon-col">
+                        <button class="mdl-button mdl-js-button mdl-button--icon feat-reward mdl-button--accent"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="col-sm-6 icon-col">
+                        <button class="mdl-button mdl-js-button mdl-button--icon feat-reward mdl-button--colored"><i class="fas fa-bus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
