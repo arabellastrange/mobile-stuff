@@ -1,36 +1,43 @@
 <!--<button onclick="loadTemplate('home')">Home</button>-->
-<div class="row mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <div class="mdl-layout__header mdl-color--yellow-A100">
-        <div class="mdl-layout__header-row mdl-color-text--indigo-400">
-        <div class="col-sm-2 icon-col">
 
-            <button id="back" onclick="selectOrigin()" hidden
-                    class="mdl-button mdl-js-button mdl-button--icon"><i class="fas fa-chevron-circle-left"></i></button>
+<div class="row mdl-layout mdl-js-layout mdl-layout--fixed-header ">
+    <div class="mdl-layout__header flat-header">
+        <div class="mdl-layout__header-row">
+            <div class="col-sm-2 icon-col">
+                <button id="back" onclick="selectOrigin()" hidden
+                        class="mdl-button mdl-js-button mdl-button--icon"><i class="fas fa-chevron-circle-left"></i></button>
+            </div>
+            <div class="col-sm-8">
 
-        </div>
-
-            <div class="col-sm-8" id="message">
-                Select an origin
             </div>
             <div class="col-sm-2 icon-col">
-
                     <button id="home" onclick="loadTemplate('home')"
                             class="mdl-button mdl-js-button mdl-button--icon"><i class="fas fa-home"></i></button>
-
+            </div>
+            <div class="col-sm-12">
+                <form>
+                    <label>From: </label>
+                    <input onclick="this.select()" id="pac-input" type="text" placeholder="Search Box">
+                </form>
+            </div>
+            <div class="col-sm-12" id="message">
+                Select an origin
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-12">
 
+    <div class="mdl-layout__content map-body">
+        <div class="row">
+            <div class="col-sm-12">
+            </div>
         </div>
+        <!--<div class="row results">-->
+        <!--<div class="col-sm-12">-->
+        <!--&lt;!&ndash; list of results which match criteria &ndash;&gt;-->
+        <!--</div>-->
+        <!--</div>-->
 
+        <div id="map"></div>
     </div>
-    <!--<div class="row results">-->
-    <!--<div class="col-sm-12">-->
-    <!--&lt;!&ndash; list of results which match criteria &ndash;&gt;-->
-    <!--</div>-->
-    <!--</div>-->
-    <input onclick="this.select()" id="pac-input" type="text" placeholder="Search Box">
-    <div class="mdl-layout__content map-body" id="map"></div>
+
 </div>

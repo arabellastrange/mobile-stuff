@@ -50,15 +50,15 @@ body{
 
 .call-to-action{
     text-align: right;
-    bottom: 10%;
+    bottom: 5%;
     position: absolute;
     right: 5%;
 }
 
 .map-body{
     padding: 0!important;
-    margin-top: 1em!important;
     height: calc(100vh - 4.5em)!important;
+    margin-top: 0!important;
 }
 
 .home-screen{
@@ -123,4 +123,41 @@ body{
     width: 100%;
     margin-bottom: 0.8em;
     line-height: 2em;
+    color: #0d47a1;
+    text-align: left;
+}
+
+.login .mdl-button{
+    text-align: center;
+    margin-bottom: 0!important;
+}
+
+.map-body  button{
+    top: 10em!important;
+}
+
+.gm-style-mtc{
+    top: 10em!important;
+}
+
+.gm-style-mtc div{
+    font-size: 3em!important;
+}
+
+.gmnoprint button{
+    top: 0!important;
+}
+
+.flat-header{
+    box-shadow: none!important;
+}
+
+.mdl-layout__header{
+    background-color: deeppink!important;
+    color: white!important;
+}
+
+.mdl-button--fab{
+    background-color: yellow!important;
+    color: #0d47a1!important;
 }

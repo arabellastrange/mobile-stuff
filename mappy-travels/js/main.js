@@ -32,7 +32,7 @@ $('document').ready(function(){
      */
 
     //we start by checking if the user is already logged in
-   /* $.ajax({url: 'php/signin.php', success: function(response){
+    $.ajax({url: 'php/signin.php', success: function(response){
         if (response.username){// login was successful
             user.name = response.username;
             user.routes = response.routes;
@@ -44,10 +44,7 @@ $('document').ready(function(){
             //not logged in this session, so redirect to login
             loadTemplate('login');
         }
-    }});*/
-
-   loadTemplate("login");
-
+    }});
 });
 
 
