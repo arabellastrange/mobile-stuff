@@ -76,3 +76,91 @@ function loadTemplate(templateName){
         });
     });
 }
+
+
+function loadPrizesPage(){
+    console.log("loading prizes");
+
+    request = $.ajax({
+        url: "php/prizes.php",
+        type: "post",
+        dataType: "json"
+    });
+
+    request.done(function (response, textStatus, jqXHR) {
+        if(response.prizes){
+            var prizes = JSON.parse(response.prizes);
+            var prizesToUsers = response.ptu;
+            showTemplate(prizes, prizesToUsers, user);
+        }
+        else{
+            $('#error-message').html(response.msg);
+            console.log("adbabdbadb");
+        }
+    });
+
+    request.fail(function (jqXHR, textStatus, errorThrown) {
+        //Log the error to the console
+        console.error(
+            "The following error occurred: "+
+            textStatus, errorThrown, jqXHR
+        );
+
+    });
+}
+
+function showTemplate(prizes, prizesToUsers, user){
+    var bindingObject = {prizes: prizes};
+    bindingObject.userXP = user.xp;
+    var prizesLength = prizes.length;
+    var ptuLength =  prizesToUsers.length;
+    for (var i = 0; i < prizesLength; i++){
+        prizes[i].redeemed = false;
+        prizes[i].PrizeName = toTitleCase(prizes[i].PrizeName)  ;
+        prizes[i]["PrizePic"] = 'data:image/jpeg;base64,' + hexToBase64(prizes[i]["PrizePic"]);
+        if(ptuLength > 0){
+            for(var j = 0; j < ptuLength; j++){
+                if (prizes[i]["PrizeName"] === prizesToUsers["PrizeID"] && user.name === prizesToUsers["UserID"]){
+                    prizes[i].redeemed = true;
+                }
+            }
+        }
+        if (!prizes[i].redeemed){
+            prizes[i].redeemed = false;
+        }
+        prizes[i].canRedeem = function(){
+            return (this.xp <= prizes.userXP);
+        };
+    }
+    bindingObject.paste = function(){
+        return JSON.stringify(this);
+    };
+    //Do template binding
+    $.get( 'templates/prizes.template.html', function( template ) {
+        //use mustache to bind the template and data
+        var html = Mustache.to_html(template, bindingObject);
+        //insert the resulting html in the element with id="page-content"
+        $('#page-content').html(html);
+
+        /**
+         * Now load the scripts into the scripts div
+         */
+        $.get( 'templates/prizes.scripts.html', function( template ) {
+            var scripts = Mustache.to_html(template, bindingObject);
+            $('#scripts').html(scripts);
+        })
+            .fail(function(){
+                console.error("Error in call to loadTemplate(): couldn't find prizes.scripts.html");
+                $('#scripts').html('');
+            });
+    });
+}
+
+function hexToBase64(str) {
+    return btoa(String.fromCharCode.apply(null, str.replace(/\r|\n/g, "").replace(/([\da-fA-F]{2}) ?/g, "0x$1 ").replace(/ +$/, "").split(" ")));
+}
+
+function toTitleCase(str)
+{
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
