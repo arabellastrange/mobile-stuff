@@ -1,5 +1,4 @@
-<button onclick="loadTemplate('login')">Back to Login</button>
-<form id="signup" method="post">
+<form id="signup" method="post" onsubmit="return validateForm()">
     <p>Sign Up</p>
     <label for="username">Username:</label>
     <input type="text" name="username" id="username" maxlength="20"/>
@@ -7,6 +6,7 @@
     <input type="password" name="password" id="password" maxlength="20"/>
     <label for="reenterpassword">Re-enter Password:</label>
     <input type="password" name="reenterpassword" id="reenterpassword" maxlength="20"/>
-    <input type="submit" name="submit" value="submit"/>
-	<div id="error-message"></div>
+    <input type="submit" name="submit"/>
 </form>
+<div id="error-message"></div>
+<p><a href="#" onclick="loadTemplate('signin')">Back to Login</a></p>
