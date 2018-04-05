@@ -90,6 +90,7 @@
                 }
                 else {
                     $('#message').html("You're not quite close enough to " + route.destination.stopName);
+                    document.getElementById('dialog').showModal();
                 }
             }
             else {
@@ -101,6 +102,7 @@
                 }
                 else {
                     $('#message').html("You're not quite close enough to " + route.origin.stopName);
+                    document.getElementById('dialog').showModal();
                 }
             }
         }
@@ -120,6 +122,7 @@
                 }
                 else {
                     $('#message').html("You're not quite close enough to " + route.origin.stopName);
+                    document.getElementById('dialog').showModal();
                 }
             }
             else {
@@ -137,6 +140,7 @@
                 else {
                     //show message to say not close enough
                     $('#message').html("You're not quite close enough to " + route.destination.stopName);
+                    document.getElementById('dialog').showModal();
                 }
             }
         }
@@ -190,6 +194,16 @@
     }
 
     $('#checkIn').click(checkIn);
+
+    (function() {
+        var okButton = document.getElementById('ok');
+        var dialog = document.getElementById('dialog');
+
+        // Form cancel button closes the dialog box
+        okButton.addEventListener('click', function() {
+            dialog.close();
+        });
+    })();
 
 </script>
 

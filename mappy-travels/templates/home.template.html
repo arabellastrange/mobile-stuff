@@ -1,17 +1,44 @@
-<form action="php/logout.php"><button type="submit">Logout</button></form>
+<div class="row mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="mdl-layout__header mdl-color--yellow-A100">
+        <div class="mdl-layout__header-row mdl-color-text--indigo-400">
+            <div class="col-sm-9">
+                {{name}}'s Routes
+            </div>
+            <div class="col-sm-3 icon-col">
+
+                <form action="php/logout.php">
+                <button type="submit" id="home" class="mdl-button mdl-js-button mdl-button--icon"><i class="fas fa-sign-out-alt"></i></button>
+                    </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="mdl-layout__content">
+
+        <!-- iterate -->
+        {{#routes.length}}
+        {{#routes}}
+        <div class="row" onclick="showRoute('{{name}}')">
+            <div class="col-sm-9">
+                <a href="#">{{name}} | {{origin.stopName}} - {{destination.stopName}} | {{xp}} </a>
+            </div>
+            <div class="col-sm-3">
+                45 min
+            </div>
+        </div>
+        {{/routes}}
+        {{/routes.length}}
+
+
+
+        <div class="row" onclick="loadTemplate('new-route')">
+            <div class="col-sm-12 call-to-action">
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    <i class="material-icons">add</i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
 <button onclick="loadPrizesPage()">{{xp}} XP available - go to prizes</button>
-{{#routes.length}}
-    <header>
-        {{name}}'s Routes
-    </header>
-    {{#routes}}
-        <div id="route-{{name}}" onclick="showRoute('{{name}}')"> {{name}} | {{origin.stopName}} - {{destination.stopName}} | {{xp}}</div>
-        <hr>
-    {{/routes}}
-{{/routes.length}}
-{{^routes.length}}
-    <header>
-        Add New Route
-    </header>
-{{/routes.length}}
-<button id="addNewRoute" onclick="loadTemplate('new-route')"> Add a route + </button>
