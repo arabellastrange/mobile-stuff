@@ -106,6 +106,7 @@ body{
     font-size: 3em;
     line-height: 1em;
     margin-top: 3em!important;
+    text-align: center;
 }
 
 .login-button{
@@ -171,14 +172,14 @@ body{
     right: 20%;
     height: 15%;
     font-size: 3em;
-    opacity: 0.8;
+    opacity: 0.9;
     background: #0d47a1;
     color: white;
     top: 40%;
 }
 
 .mdl-dialog__actions button{
-    color: rgba(255,255,255, 0.8);
+    color: rgba(255,255,255, 0.9);
 }
 
 a{
@@ -187,4 +188,32 @@ a{
 
 .mdl-layout__header-row{
     text-align: center;
+}
+
+.footer-button{
+    min-width: 6em!important;
+}
+
+.footer-message{
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.mdl-dialog__content #message{
+    line-height: 1em;
+    color: white;
+}
+
+.mdl-dialog__title{
+    color: yellow;
+}
+
+.prize-icon{
+    height: 100%;
+    width: 100%;
+}
+
+.prize-row{
+    padding-top: 1em;
+    padding-bottom: 1em;
 }

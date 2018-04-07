@@ -52,13 +52,12 @@
 }
 
 .pac-item{
-    font-size: 2em;
+    font-size: 1em;
     line-height: 2em;
 }
-
-
 .pac-icon{
     color: deeppink;
+    font-size: 3em;
 }
 
 .pac-matched{
@@ -69,5 +68,10 @@
 .pac-item-query{
     font-size: 1em;
     font-weight: normal;
+}
+
+.pac-container{
+    width: 100%;
+    font-size: 3em;
 }
 /*END OF MAP STUFF */

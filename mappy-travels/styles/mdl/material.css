@@ -7720,7 +7720,7 @@ input.mdl-button[type="submit"] {
         opacity: 1; } }
 
 .mdl-layout__content {
-    padding: 0px 16px 0px 72px;
+    padding: 0 20px 0 20px;
     width: 100%;
       font-size: 3em;
       line-height: 2em;

@@ -17,12 +17,12 @@
     <div class="mdl-layout__content" id="prizes">
         {{#prizes.length}}
         {{#prizes}}
-        <div class="row">
+        <div class="row prize-row">
             <div class="col-sm-9">
                 <div class="col-sm-3">
-                    <img src="{{PrizePic}}" />
+                    <img class="prize-icon" src="{{PrizePic}}" />
                 </div>
-                <div class=" col-sm-6">
+                <div class=" col-sm-9">
                     {{PrizeName}} | {{PointsRequired}} points required
                 </div>
             </div>
