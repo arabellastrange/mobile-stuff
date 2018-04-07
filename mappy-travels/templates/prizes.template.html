@@ -9,35 +9,35 @@
             </div>
         </div>
         <div class="row progress" id="points">
-            <!--<div class="progress-bar col-sm-12" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">700XP</div>-->
+            <div class="progress-bar col-sm-12" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">700XP</div>
             You have {{userXP}} XP points
         </div>
     </div>
-</div>
 
-<div class="mdl-layout__content" id="prizes">
-    {{#prizes.length}}
+    <div class="mdl-layout__content" id="prizes">
+        {{#prizes.length}}
         {{#prizes}}
-            <div class="row">
-                <div class="col-sm-9">
-                    <div class="col-sm-3">
-                        <img src="{{PrizePic}}" />
-                    </div>
-                    <div class=" col-sm-6">
-                        {{PrizeName}} | {{PointsRequired}} points required
-                    </div>
-                </div>
-
+        <div class="row">
+            <div class="col-sm-9">
                 <div class="col-sm-3">
-                    <button class = "mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button"
-                            {{#redeemed}}
-                            disabled
-                            {{/redeemed}}
-                    >Redeem</button>
+                    <img src="{{PrizePic}}" />
+                </div>
+                <div class=" col-sm-6">
+                    {{PrizeName}} | {{PointsRequired}} points required
                 </div>
             </div>
-        {{/prizes}}
-    {{/prizes.length}}
-</div>
 
-<div id="error-message"></div>
+            <div class="col-sm-3">
+                <button class = "mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button"
+                        {{#redeemed}}
+                        disabled
+                        {{/redeemed}}
+                >Redeem</button>
+            </div>
+        </div>
+        {{/prizes}}
+        {{/prizes.length}}
+    </div>
+
+    <div id="error-message"></div>
+</div>
