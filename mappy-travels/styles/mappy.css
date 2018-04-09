@@ -88,24 +88,35 @@ body{
 
 
 .login{
-    line-height: 3em!important;
+    line-height: 2.5em!important;
     font-size: 3em!important;
     margin-top: 0!important;
     padding: 0!important;
     background-color: deeppink;
     color: white;
+    background-image: url("homeGraphic.png");
+    background-repeat: no-repeat;
+    background-position: 5% 102%;
 }
 
 .center-content{
     padding-left: 15%;
     padding-right: 15%;
-    line-height: 3em;
+    line-height: 2.5em;
+    text-transform: uppercase;
 }
 
 .welcome-header{
     font-size: 3em;
     line-height: 1em;
     margin-top: 3em!important;
+    text-align: center;
+}
+
+.reg-header{
+    font-size: 3em;
+    line-height: 1em;
+    margin-top: 1em!important;
     text-align: center;
 }
 
@@ -122,7 +133,7 @@ body{
     border-color: #0d47a1;
     border-style: solid;
     width: 100%;
-    margin-bottom: 0.8em;
+    margin-bottom: 0.5em;
     line-height: 2em;
     color: #0d47a1;
     text-align: left;
@@ -216,4 +227,11 @@ a{
 .prize-row{
     padding-top: 1em;
     padding-bottom: 1em;
+}
+
+#error-message{
+    text-transform: uppercase;
+    font-size: 0.9em;
+    line-height: 2em;
+    opacity: 0.8;
 }

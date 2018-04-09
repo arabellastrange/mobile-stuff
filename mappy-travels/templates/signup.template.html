@@ -1,12 +1,37 @@
-<button onclick="loadTemplate('login')">Back to Login</button>
-<form id="signup" method="post">
-    <p>Sign Up</p>
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username" maxlength="20"/>
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" maxlength="20"/>
-    <label for="reenterpassword">Re-enter Password:</label>
-    <input type="password" name="reenterpassword" id="reenterpassword" maxlength="20"/>
-    <input type="submit" name="submit" value="submit"/>
-	<div id="error-message"></div>
-</form>
+<div class="mdl-layout__content login">
+    <div class="row reg-header">
+        Mappy Travels
+    </div>
+    <div class="row center-content">
+        <div class="col-sm-12">
+            <form id="signup" method="post">
+                <div class="row label-row">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" maxlength="20"/>
+                </div>
+                <div class="row label-row">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" maxlength="20"/>
+                </div>
+                <div class="row label-row">
+                    <label for="reenterpassword">Confirm Password:</label>
+                    <input type="password" name="reenterpassword" id="reenterpassword" maxlength="20"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input type="submit" name="submit" value="Register" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored login-button"/>
+                    </div>
+                    <div class="col-sm-6">
+                        <button onclick="loadTemplate('login')" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">Back to Login</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="error-message"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
