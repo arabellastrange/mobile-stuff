@@ -115,6 +115,8 @@
                     route.origin.checkedIn = true;
                     //todo change origin icon
                     busStopOrigin.setMap(null);
+                    $('#message').html("Checked in at " + route.origin.stopName);
+                    document.getElementById('dialog').showModal();
 
                     //fixme test code forces position to change
                     //setPosition({coords: {latitude:route.destination.lat, longitude: route.destination.lng, accuracy:100}});
