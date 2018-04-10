@@ -134,6 +134,12 @@ body{
 
 }
 
+.mdl-mini-footer{
+    background-color: rgb(229, 229, 229)!important;
+    color: #ff63b1!important; ;
+}
+
+
 .center-content{
     padding-left: 15%;
     padding-right: 15%;
@@ -220,7 +226,7 @@ body{
     right: 18%;
     height: 15%;
     font-size: 3em;
-    opacity: 0.9;
+    opacity: 0.85;
     background: #220054;
     color: white;
     top: 40%;
@@ -267,6 +273,8 @@ a{
 .prize-row{
     padding-top: 1em;
     padding-bottom: 1em;
+    margin-left: -0.5em;
+    margin-right: -0.5em;
 }
 
 #error-message{
