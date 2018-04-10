@@ -78,7 +78,7 @@ body{
     text-align: center;
     font-size: 3em;
     height: 100%;
-    color: #0d47a1;
+    color: #220054;
 }
 
 .action-page h1{
@@ -94,7 +94,7 @@ body{
     font-size: 3em!important;
     margin-top: 0!important;
     padding: 0!important;
-    background-color: deeppink;
+    background-color:#FF63B1;
     color: white;
     background-image: url("homeGraphic.png");
     background-repeat: no-repeat;
@@ -167,12 +167,12 @@ body{
 
 .login input{
     border: 0.1em;
-    border-color: #0d47a1;
+    border-color: #220054;
     border-style: solid;
     width: 100%;
     margin-bottom: 0.5em;
     line-height: 2em;
-    color: #0d47a1;
+    color: #220054;
     text-align: left;
 }
 
@@ -202,13 +202,13 @@ body{
 }
 
 .mdl-layout__header{
-    background-color: deeppink!important;
+    background-color: #FF63B1!important;
     color: white!important;
 }
 
 .mdl-button--fab{
-    background-color: yellow!important;
-    color: #0d47a1!important;
+    background-color: #F9FF66!important;
+    color: #220054!important;
 }
 
 .mdl-dialog{
@@ -221,7 +221,7 @@ body{
     height: 15%;
     font-size: 3em;
     opacity: 0.9;
-    background: #0d47a1;
+    background: #220054;
     color: white;
     top: 40%;
 }
@@ -231,7 +231,7 @@ body{
 }
 
 a{
-    color: #0d47a1!important;
+    color: #220054!important;
 }
 
 .mdl-layout__header-row{
@@ -254,7 +254,7 @@ a{
 }
 
 .mdl-dialog__title{
-    color: yellow;
+    color: #F9FF66;
     font-size: 1.1em!important;
     margin-bottom: 0.2em!important;
 }
@@ -294,7 +294,7 @@ a{
 .progress-bar{
     font-size: 3em;
     line-height: 2em;
-    background-color: #0d47a1;
+    background-color: #220054;
 }
 
 input:-webkit-autofill,
@@ -308,7 +308,7 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
     background-color: #f5f6ff!important;
-    color: deeppink!important;
+    color: #FF63B1!important;
 }
 
 #QR{
