@@ -88,8 +88,9 @@ function loadPrizesPage(){
 
     request.done(function (response, textStatus, jqXHR) {
         if(response.prizes){
+            console.log(response);
             var prizes = JSON.parse(response.prizes);
-            var prizesToUsers = response.ptu;
+            var prizesToUsers = JSON.parse(response.ptu);
             showTemplate(prizes, prizesToUsers, user);
         }
         else{
@@ -109,6 +110,8 @@ function loadPrizesPage(){
 }
 
 function showTemplate(prizes, prizesToUsers, user){
+    console.log(prizes);
+    console.log(prizesToUsers);
     var bindingObject = {prizes: prizes};
     bindingObject.userXP = user.xp;
     var prizesLength = prizes.length;
@@ -119,7 +122,9 @@ function showTemplate(prizes, prizesToUsers, user){
         prizes[i]["PrizePic"] = 'data:image/jpeg;base64,' + hexToBase64(prizes[i]["PrizePic"]);
         if(ptuLength > 0){
             for(var j = 0; j < ptuLength; j++){
-                if (prizes[i]["PrizeName"] === prizesToUsers["PrizeID"] && user.name === prizesToUsers["UserID"]){
+                if (prizes[i]["id"] === prizesToUsers[j]["PrizeID"]){
+                    console.log(prizes[i]);
+                    console.log('redeemed');
                     prizes[i].redeemed = true;
                 }
             }
@@ -136,6 +141,7 @@ function showTemplate(prizes, prizesToUsers, user){
     };
     //Do template binding
     $.get( 'templates/prizes.template.html', function( template ) {
+        console.log(bindingObject);
         //use mustache to bind the template and data
         var html = Mustache.to_html(template, bindingObject);
         //insert the resulting html in the element with id="page-content"
