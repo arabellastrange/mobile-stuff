@@ -37,7 +37,6 @@ $('document').ready(function(){
             user.name = response.username;
             user.routes = response.routes;
             user.xp = parseInt(response.xp);
-            console.log(JSON.stringify(user));
             loadTemplate('home');
         }
         else {
@@ -102,14 +101,12 @@ function loadPrizesPage(){
 
     request.done(function (response, textStatus, jqXHR) {
         if(response.prizes){
-            console.log(response);
             var prizes = JSON.parse(response.prizes);
             var prizesToUsers = JSON.parse(response.ptu);
             showTemplate(prizes, prizesToUsers, user);
         }
         else{
             $('#error-message').html(response.msg);
-            console.log("adbabdbadb");
         }
     });
 
@@ -170,7 +167,6 @@ function showTemplate(prizes, prizesToUsers, user){
     };
     //Do template binding
     $.get( 'templates/prizes.template.html', function( template ) {
-        console.log(bindingObject);
         //use mustache to bind the template and data
         var html = Mustache.to_html(template, bindingObject);
         //insert the resulting html in the element with id="page-content"

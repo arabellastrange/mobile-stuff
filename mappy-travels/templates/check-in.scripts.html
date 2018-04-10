@@ -39,14 +39,12 @@
                 title: route.origin.stopName,
                 icon: icon
             });
-			console.log(busStopOrigin);
             busStopDestination = new google.maps.Marker({
                 position: route.destination,
                 map: map,
                 title: route.destination.stopName,
                 icon: icon
             });
-			console.log(busStopDestination);
             //start at the origin for testing
             //setPosition({coords: {latitude: route.origin.lat, longitude: route.origin.lng, accuracy: 100}})
             //or get your real location
@@ -185,6 +183,9 @@
         myLocation.lng = position.coords.longitude;
 
         acceptedDistance = position.coords.accuracy;
+        if (acceptedDistance < 100){
+            acceptedDistance = 100;
+        }
         radiusCircle.setRadius(acceptedDistance);
 
         marker.setPosition(myLocation);

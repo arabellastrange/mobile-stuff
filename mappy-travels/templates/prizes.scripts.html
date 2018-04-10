@@ -7,15 +7,13 @@
     function submitRedeem(prizeName){
         console.log('Redeeming ' + prizeName);
         $.ajax({url: 'php/redeem.php?prize=' + encodeURI(prizeName), success: function(response){
-            console.log(response);
+
             //TODO find prize and remove xp
             console.log(prizes);
 
             for (var i in prizes.prizes){
                 if (prizes.prizes[i].PrizeName === prizeName){
-                    console.log('User xp ' + user.xp);
                     user.xp -= prizes.prizes[i].PointsRequired;
-                    console.log('User xp ' + user.xp);
                     break;
                 }
             }
@@ -43,7 +41,6 @@
             });
         }}).fail(
             function(reason){
-            console.log("AJAX failed");
         });
     }
 
