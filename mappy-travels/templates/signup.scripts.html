@@ -25,9 +25,8 @@
     var request;
 
     $("#signup").submit(function(event){
-
         // Prevent default posting of form - put here to work in case of errors
-        event.preventDefault();
+        //event.preventDefault();
 
         // Abort any pending request
         if (request) {
@@ -57,7 +56,7 @@
         // Callback handler that will be called on success
         request.done(function (response, textStatus, jqXHR){
             // Log a message to the console
-            if (response){
+            if (response.result){
                 //successful registration -> could potentially do auto login
                 loadTemplate('login');
             }
