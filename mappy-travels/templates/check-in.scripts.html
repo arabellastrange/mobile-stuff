@@ -31,7 +31,7 @@
                 url: "images/bus-stop.png", // url
                 scaledSize: new google.maps.Size(50, 50), // scaled size
                 origin: new google.maps.Point(0,0), // origin
-                anchor: new google.maps.Point(0, 0) // anchor
+				anchor: new google.maps.Point(25, 25)
             };
             busStopOrigin = new google.maps.Marker({
                 position: route.origin,
@@ -39,16 +39,49 @@
                 title: route.origin.stopName,
                 icon: icon
             });
+			console.log(busStopOrigin);
             busStopDestination = new google.maps.Marker({
                 position: route.destination,
                 map: map,
                 title: route.destination.stopName,
                 icon: icon
             });
+			console.log(busStopDestination);
             //start at the origin for testing
             //setPosition({coords: {latitude: route.origin.lat, longitude: route.origin.lng, accuracy: 100}})
             //or get your real location
             navigator.geolocation.getCurrentPosition(setPosition);
+
+			var directionsService = new google.maps.DirectionsService();
+			var directionsDisplay = new google.maps.DirectionsRenderer();
+			var service = new google.maps.DistanceMatrixService();
+			var request = {
+				origin: busStopOrigin.position,
+				destination: busStopDestination.position,
+				travelMode: 'TRANSIT',
+				transitOptions: {modes: ['BUS']}
+				};
+				
+			directionsService.route(request, function(result, status) {
+				if (status == 'OK') {
+					directionsDisplay.setDirections(result);
+					console.log(result.duration_in_traffic);
+				}
+			});
+			
+			var timeRequest = {
+			origins: [busStopOrigin.position],
+			destinations: [busStopDestination.position],
+			travelMode: 'TRANSIT',
+			transitOptions: {modes: ['BUS']}};
+			
+			service.getDistanceMatrix(timeRequest, function(result, status) {
+				if (status = 'OK') {
+					console.log(result.rows[0].elements[0].duration.text);
+				}
+			});
+			
+			directionsDisplay.setMap(map);
         } else {
             console.log('Location unavilable');
             alert("Geolocation is not supported by this browser.");
