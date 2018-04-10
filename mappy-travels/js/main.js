@@ -57,6 +57,20 @@ $('document').ready(function(){
  */
 function loadTemplate(templateName){
     $.get( 'templates/'+templateName+'.template.html', function( template ) {
+		var colorFlag = true;
+		for (var i in user.routes) {
+			if (colorFlag) {
+				user.routes[i].colorValue = function () {
+					return "mdl-color--white";
+				}
+			} 
+			else {
+				user.routes[i].colorValue = function () {
+					return "mdl-color--grey-100";
+				}
+			}
+			colorFlag = !colorFlag;
+		}
         //use mustache to bind the template and data
         var html = Mustache.to_html(template, user);
         //insert the resulting html in the element with id="page-content"
