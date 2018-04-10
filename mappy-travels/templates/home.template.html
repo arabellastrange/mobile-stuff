@@ -19,14 +19,14 @@
 
         <!-- iterate -->
         {{#routes.length}}
-        <div class="mdl-layout__content">
+        <div class="mdl-layout__content {{colorValue}}">
         {{#routes}}
             <div class="row" onclick="showRoute('{{name}}')">
                 <div class="col-sm-9">
                     <a href="#">{{name}} | {{origin.stopName}} - {{destination.stopName}} | {{xp}} </a>
                 </div>
                 <div class="col-sm-3">
-                    45 min
+                    {{time}}
                 </div>
             </div>
         {{/routes}}
