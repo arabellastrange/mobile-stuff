@@ -53,17 +53,23 @@
             //setPosition({coords: {latitude: route.origin.lat, longitude: route.origin.lng, accuracy: 100}})
             //or get your real location
             navigator.geolocation.getCurrentPosition(setPosition);
-			//add line 
-			var path = new google.maps.Polyline({
-			path: [busStopOrigin.position, busStopDestination.position],
-			geodesic: true,
-			strokeColor: '#FF0000',
-			strokeOpacity: 1.0,
-			strokeWeight: 2
+
+			var directionsService = new google.maps.DirectionsService();
+			var directionsDisplay = new google.maps.DirectionsRenderer();
+			var request = {
+				origin: busStopOrigin.position,
+				destination: busStopDestination.position,
+				travelMode: 'TRANSIT',
+				transitOptions: {modes: ['BUS']}
+				};
+				
+			directionsService.route(request, function(result, status) {
+				if (status == 'OK') {
+					directionsDisplay.setDirections(result);
+				}
 			});
 			
-			
-			path.setMap(map);
+			directionsDisplay.setMap(map);
         } else {
             console.log('Location unavilable');
             alert("Geolocation is not supported by this browser.");
