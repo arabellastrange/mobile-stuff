@@ -22,10 +22,11 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
     }
 }
 
-$prizesql = ("SELECT id FROM MappyPrizes WHERE PrizeName = '$prize'");
+$prizesql = ("SELECT id, PointsRequired FROM MappyPrizes WHERE PrizeName = '$prize'");
 $prizeResult = mysqli_query($conn, $prizesql) or die(mysqli_error($conn));
 $row = mysqli_fetch_assoc($prizeResult);
 $prizeResult = $row['id'];
+$prizeXP = $row['PointsRequired'];
 
 $ptusql = ("INSERT INTO `PrizesToUsers` (`UserID`, `PrizeID`) VALUES ('$username', '$prizeResult')");
 mysqli_query($conn, $ptusql) or die(mysqli_error($conn));
@@ -35,11 +36,19 @@ $prizeQR = mysqli_query($conn, $prizeQRsql);
 $row = mysqli_fetch_assoc($prizeQR);
 $prizeQR = bin2hex($row['QR']);
 
-$conn->close();
 
-//TODO 1) get the user xp, 2) get the prize xp 3) subtract the prize xp and update the database
+$sql = "SELECT * FROM `MappyUsers` WHERE UserID='$username'";
+$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+$count = mysqli_num_rows($result);
+$xp = mysqli_fetch_assoc($result)['UserXP'];
+$xp = $xp - $prizeXP;
+
+$sql = "UPDATE `MappyUsers` SET `UserXP`=$xp WHERE UserId LIKE '$username'";
+mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
 $json['prize'] = $prize;
 $json['prizeQR'] = $prizeQR;
 echo json_encode($json);
 
+
+$conn->close();
