@@ -1,23 +1,48 @@
-<button onclick="loadTemplate('home')">Home</button>
-<div id = "points">
-You have {{userXP}} XP points
-</div>
+<div class="row mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <div class="col-sm-2">
 
-<div id="prizes">
-    {{#prizes.length}}
-        {{#prizes}}
-            <div> {{PrizeName}} | {{PointsRequired}} points required
-                <form action="redeem.php" method="GET">
-                <button type="submit" name="{{PrizeName}}"
-                    {{#redeemed}}
-                        disabled
-                    {{/redeemed}}
-                >Redeem</button>
-                <form/>
-                <img src="{{PrizePic}}" />
             </div>
-        {{/prizes}}
-    {{/prizes.length}}
+            <div class="col-sm-8">
+                My Rewards
+            </div>
+            <div class="col-sm-2 icon-col">
+                <button onclick="loadTemplate('home')" id = "home" class="mdl-button mdl-js-button mdl-button--icon"><i class="fas fa-home"></i></button>
+            </div>
+        </div>
+    </div>
 
+    <div class="row progress" id="points">
+        <div class="progress-bar col-sm-12" aria-valuenow="{{userXP}}" aria-valuemin="0" aria-valuemax="1000" style="width:50%">{{userXP}}XP</div>
+    </div>
+
+    <div class="mdl-layout__content" id="prizes">
+        {{#prizes.length}}
+        {{#prizes}}
+        <div class="row prize-row">
+            <div class="col-sm-9">
+                <div class="col-sm-3">
+                    <img class="prize-icon" src="{{PrizePic}}" />
+                </div>
+                <div class=" col-sm-9">
+                    {{PrizeName}} | {{PointsRequired}} points required
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <button class = "mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                        name="{{PrizeName}}" id="{{PrizeName}}" onclick="submitRedeem('{{PrizeName}}')"
+                        {{#redeemed}}
+                        disabled
+                        {{/redeemed}}
+                >Redeem</button>
+
+            </div>
+        </div>
+        {{/prizes}}
+        {{/prizes.length}}
+    </div>
+
+    <div id="error-message"></div>
 </div>
-<div id="error-message"></div>

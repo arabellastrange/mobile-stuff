@@ -1,10 +1,37 @@
 <script>
 
     console.log('hello world');
-    var prizes = '{{paste}}'.replace(/&quot;/g,'"')
-    console.log(prizes);
 
+    function submitRedeem(prizeName){
+        console.log('Redeeming ' + prizeName);
+        $.ajax({url: 'php/redeem.php?prize=' + encodeURI(prizeName), success: function(response){
+            console.log(response);
+            response.QRtoBase64 = function(){
+                return 'data:image/jpeg;base64,'+hexToBase64(response.prizeQR);
+            };
+            $.get( 'templates/redeem.template.html', function( template ) {
+                //use mustache to bind the template and data
+                var html = Mustache.to_html(template, response);
+                //insert the resulting html in the element with id="page-content"
+                $('#page-content').html(html);
 
+                /**
+                 * Now load the scripts into the scripts div
+                 */
+                $.get( 'templates/redeem.scripts.html', function( template ) {
+                    var scripts = Mustache.to_html(template, response);
+                    $('#scripts').html(scripts);
+                })
+                    .fail(function(){
+                        console.error("Error in call to loadTemplate(): couldn't find prizes.scripts.html");
+                        $('#scripts').html('');
+                    });
+            });
+        }}).fail(
+            function(reason){
+            console.log("AJAX failed");
+        });
+    }
 
 
 </script>
