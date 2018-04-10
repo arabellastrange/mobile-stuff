@@ -1,6 +1,6 @@
 <script>
 
-    var origin, destination;
+    var origin, destination, time;
 
     function nameUpdated(){
         var button = document.getElementById('save-route');
@@ -54,6 +54,7 @@
         if (uniqueRouteName(name)){
             route.name = name;
             route.xp = 250; // default value
+			route.time = time;
             sendRouteToDatabase(route);
         }
         else {
@@ -86,6 +87,37 @@
             position: destination
         }));
 
+		var directionsService = new google.maps.DirectionsService();
+			var directionsDisplay = new google.maps.DirectionsRenderer();
+			var service = new google.maps.DistanceMatrixService();
+			var request = {
+				origin: origin,
+				destination: destination,
+				travelMode: 'TRANSIT',
+				transitOptions: {modes: ['BUS']}
+				};
+				
+			directionsService.route(request, function(result, status) {
+				if (status == 'OK') {
+					directionsDisplay.setDirections(result);
+					console.log(result.duration_in_traffic);
+				}
+			});
+			
+			var timeRequest = {
+			origins: [origin],
+			destinations: [destination],
+			travelMode: 'TRANSIT',
+			transitOptions: {modes: ['BUS']}};
+			
+			service.getDistanceMatrix(timeRequest, function(result, status) {
+				if (status = 'OK') {
+					time = result.rows[0].elements[0].duration.text;
+				}
+			});
+			
+			directionsDisplay.setMap(map);
+		
         //changes the bounds of map to fit the two markers
         var bounds = new google.maps.LatLngBounds();
         for (var i = 0; i < markers.length; i++) {

@@ -114,6 +114,7 @@ function showTemplate(prizes, prizesToUsers, user){
     bindingObject.userXP = user.xp;
     var prizesLength = prizes.length;
     var ptuLength =  prizesToUsers.length;
+	var item1 = true;
     for (var i = 0; i < prizesLength; i++){
         prizes[i].redeemed = false;
         prizes[i].PrizeName = toTitleCase(prizes[i].PrizeName)  ;
@@ -131,10 +132,22 @@ function showTemplate(prizes, prizesToUsers, user){
         prizes[i].canRedeem = function(){
             return (this.xp <= prizes.userXP);
         };
+		if (item1) {
+				prizes[i].colorValue = function(){
+					return "mdl-color--white";
+				};
+			}
+		else {
+				prizes[i].colorValue = function(){
+					return "mdl-color--grey-100";
+				};
+			}
+		item1 = !item1;
     }
     bindingObject.paste = function(){
         return JSON.stringify(this);
     };
+	
     //Do template binding
     $.get( 'templates/prizes.template.html', function( template ) {
         console.log(bindingObject);
