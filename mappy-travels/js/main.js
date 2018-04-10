@@ -135,6 +135,13 @@ function showTemplate(prizes, prizesToUsers, user){
     bindingObject.paste = function(){
         return JSON.stringify(this);
     };
+    bindingObject.xpPercentage = function(){
+        var percentage = (user.xp/1000)*100;
+        if (percentage > 100){
+            percentage = 100;
+        }
+        return percentage;
+    };
     //Do template binding
     $.get( 'templates/prizes.template.html', function( template ) {
         console.log(bindingObject);
