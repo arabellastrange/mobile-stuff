@@ -180,6 +180,7 @@ body{
     line-height: 2em;
     color: #220054;
     text-align: left;
+    padding-left: 0.5em;
 }
 
 .login .mdl-button{
@@ -220,20 +221,26 @@ body{
 .mdl-dialog{
     border: none;
     box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
-    width: 65%!important;
+    width: 75%!important;
     position: absolute;
-    left: 18%;
-    right: 18%;
-    height: 15%;
+    left: 15%;
+    right: 15%;
+    height: 23%;
     font-size: 3em;
     opacity: 0.85;
     background: #220054;
     color: white;
-    top: 40%;
+    top: 35%;
+    line-height: 1em;
 }
 
 .mdl-dialog__actions button{
     color: rgba(255,255,255, 0.9);
+}
+
+.mdl-dialog__actions{
+    right: 0.5em;
+    bottom: 0.5em;
 }
 
 a{
@@ -257,6 +264,7 @@ a{
 .mdl-dialog__content #message{
     line-height: 1em;
     color: white;
+    margin-bottom: 0.5em;
 }
 
 .mdl-dialog__title{
@@ -289,6 +297,8 @@ a{
     line-height: 2em;
     border: none;
     padding: 0.1em;
+    padding-left: 0.5em;
+    color: #220054 ;
 }
 
 .mdl-dialog__actions button{
