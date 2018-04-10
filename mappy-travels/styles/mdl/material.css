@@ -4010,7 +4010,7 @@ input.mdl-button[type="submit"] {
     background-color: #FF63B1; }
 
 .mdl-button[disabled][disabled], .mdl-button.mdl-button--disabled.mdl-button--disabled {
-  color: rgba(0,0,0, 0.26);
+  color: rgba(255,255,255, 0.36);
   cursor: default;
   background-color: transparent; }
 

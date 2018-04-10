@@ -238,6 +238,11 @@ body{
     color: rgba(255,255,255, 0.9);
 }
 
+.mdl-dialog__actions{
+    right: 0.5em;
+    bottom: 0.5em;
+}
+
 a{
     color: #220054!important;
 }
