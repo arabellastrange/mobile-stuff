@@ -27,7 +27,7 @@
 }
 
 .row{
-    margin: 0;
+  margin: 0;
 }
 
 body{
@@ -337,4 +337,10 @@ select:-webkit-autofill:focus {
 
 #QR img{
     width: 85%;
+}
+
+.route-row{
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+    padding-left: 0.5em;
 }
