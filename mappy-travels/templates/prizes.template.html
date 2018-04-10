@@ -7,11 +7,13 @@ You have {{userXP}} XP points
     {{#prizes.length}}
         {{#prizes}}
             <div> {{PrizeName}} | {{PointsRequired}} points required
-                <button type="button"
+                <form action="redeem.php" method="GET">
+                <button type="submit" name="{{PrizeName}}"
                     {{#redeemed}}
                         disabled
                     {{/redeemed}}
                 >Redeem</button>
+                <form/>
                 <img src="{{PrizePic}}" />
             </div>
         {{/prizes}}
