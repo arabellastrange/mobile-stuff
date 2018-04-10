@@ -33,7 +33,7 @@
                 url: "images/bus-stop.png", // url
                 scaledSize: new google.maps.Size(50, 50), // scaled size
                 origin: new google.maps.Point(0,0), // origin
-                anchor: new google.maps.Point(0, 0) // anchor
+				anchor: new google.maps.Point(25, 25)
             };
             busStopOrigin = new google.maps.Marker({
                 position: route.origin,
@@ -41,16 +41,29 @@
                 title: route.origin.stopName,
                 icon: icon
             });
+			console.log(busStopOrigin);
             busStopDestination = new google.maps.Marker({
                 position: route.destination,
                 map: map,
                 title: route.destination.stopName,
                 icon: icon
             });
+			console.log(busStopDestination);
             //start at the origin for testing
             //setPosition({coords: {latitude: route.origin.lat, longitude: route.origin.lng, accuracy: 100}})
             //or get your real location
             navigator.geolocation.getCurrentPosition(setPosition);
+			//add line 
+			var path = new google.maps.Polyline({
+			path: [busStopOrigin.position, busStopDestination.position],
+			geodesic: true,
+			strokeColor: '#FF0000',
+			strokeOpacity: 1.0,
+			strokeWeight: 2
+			});
+			
+			
+			path.setMap(map);
         } else {
             console.log('Location unavilable');
             alert("Geolocation is not supported by this browser.");

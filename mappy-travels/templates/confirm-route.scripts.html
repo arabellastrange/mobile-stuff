@@ -86,6 +86,17 @@
             position: destination
         }));
 
+		//add line 
+		var path = new google.maps.Polyline({
+		path: [origin, destination],
+		geodesic: true,
+		strokeColor: '#FF0000',
+		strokeOpacity: 1.0,
+		strokeWeight: 2
+		});
+		
+		path.setMap(map);
+		
         //changes the bounds of map to fit the two markers
         var bounds = new google.maps.LatLngBounds();
         for (var i = 0; i < markers.length; i++) {
