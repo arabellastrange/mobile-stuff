@@ -1,10 +1,16 @@
 <script>
 
     console.log('hello world');
-    var prizes = '{{paste}}'.replace(/&quot;/g,'"')
-    console.log(prizes);
 
-
+    function submitRedeem(prizeName){
+        console.log('Redeeming ' + prizeName);
+        $.ajax({url: 'php/redeem.php?'+encodeURI(prizeName)+'=1', success: function(response){
+            console.log(response);
+        }}).fail(
+            function(reason){
+            console.log("AJAX failed");
+        });
+    }
 
 
 </script>

@@ -60,7 +60,6 @@ function loadTemplate(templateName){
         //use mustache to bind the template and data
         var html = Mustache.to_html(template, user);
         //insert the resulting html in the element with id="page-content"
-        console.log(html);
         $('#page-content').html(html);
 
         /**
