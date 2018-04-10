@@ -1,5 +1,20 @@
-<button onclick="loadPrizesPage()">Back to prizes</button>
-{{prize}}
-<div id = "QR">
-    <img src="{{QRtoBase64}}"/>
+<div class="row mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-8">
+                {{prize}}
+            </div>
+            <div class="col-sm-2 icon-col">
+                <button onclick="loadPrizesPage()" id = "prizes" class="mdl-button mdl-js-button mdl-button--icon"><i class="fas fa-gift"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div id = "QR">
+        <img src="{{QRtoBase64}}"/>
+    </div>
 </div>
+

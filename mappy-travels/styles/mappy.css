@@ -309,3 +309,13 @@ select:-webkit-autofill:focus {
     background-color: #f5f6ff!important;
     color: deeppink!important;
 }
+
+#QR{
+    text-align: center;
+    margin: 2em;
+    margin-top: 25%;
+}
+
+#QR img{
+    width: 85%;
+}
