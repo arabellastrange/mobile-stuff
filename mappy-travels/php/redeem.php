@@ -13,18 +13,12 @@ $prize = null;
 $prizeQR = null;
 $username = $_SESSION['username'];
 if($_SERVER['REQUEST_METHOD'] === 'GET'){
-    if(isset($_GET['Badges'])){
-        $prize = 'Badges';
-    } elseif (isset($_GET['Coffee coupon'])){
-        $prize = 'Coffee coupon';
-    } elseif (isset($_GET['Keep cup'])){
-        $prize = 'Keep cup';
-    } elseif (isset($_GET['Pass case'])){
-        $prize = 'Pass case';
-    } elseif (isset($_GET['Book token'])){
-        $prize = 'Book token';
-    } elseif (isset($_GET['Water bottle'])){
-        $prize = 'Water bottle';
+    if(isset($_GET['prize'])){
+        $prize = $_GET['prize'];
+    }
+    else {
+        echo json_encode(Array('msg'=>'Bad request - invalid prize'));
+        die();
     }
 }
 
