@@ -241,6 +241,7 @@ body{
 .mdl-dialog__actions{
     right: 0.5em;
     bottom: 0.5em;
+    position: absolute;
 }
 
 a{
