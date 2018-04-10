@@ -17,32 +17,37 @@
         </div>
     </div>
 
-    <div class="mdl-layout__content">
-
         <!-- iterate -->
         {{#routes.length}}
+        <div class="mdl-layout__content">
         {{#routes}}
-        <div class="row" onclick="showRoute('{{name}}')">
-            <div class="col-sm-9">
-                <a href="#">{{name}} | {{origin.stopName}} - {{destination.stopName}} | {{xp}} </a>
+            <div class="row" onclick="showRoute('{{name}}')">
+                <div class="col-sm-9">
+                    <a href="#">{{name}} | {{origin.stopName}} - {{destination.stopName}} | {{xp}} </a>
+                </div>
+                <div class="col-sm-3">
+                    45 min
+                </div>
             </div>
-            <div class="col-sm-3">
-                45 min
-            </div>
-        </div>
         {{/routes}}
-        {{/routes.length}}
-
-
-
-        <div class="row" onclick="loadTemplate('new-route')">
+         <div class="row">
             <div class="col-sm-12 call-to-action">
-                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+                <button onclick="loadTemplate('new-route')" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
                     <i class="material-icons">add</i>
                 </button>
             </div>
         </div>
-    </div>
-
+        </div>
+        {{/routes.length}}
+        {{^routes.length}}
+        <div class="row action-page">
+            <div class="col-sm-12 action-content">
+                <h1>Add a Route</h1>
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="loadTemplate('new-route')">
+                    <i class="material-icons">add</i>
+                </button>
+            </div>
+        </div>
+        {{/routes.length}}
 </div>
 

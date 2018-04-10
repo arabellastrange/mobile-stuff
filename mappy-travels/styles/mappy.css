@@ -75,17 +75,19 @@ body{
 }
 
 .action-page{
-    background-color: lightgrey;
-    height: 100%;
     text-align: center;
-    padding-top: 15em;
     font-size: 3em;
+    height: 100%;
+    color: #0d47a1;
 }
 
 .action-page h1{
     font-size: 3em;
 }
 
+.action-content{
+    margin-top: 55%;
+}
 
 .login{
     line-height: 2.5em!important;
@@ -124,6 +126,10 @@ body{
 
     .progress-bar {
         font-size: 2em!important;
+    }
+
+    .action-content{
+        margin-top: 10%;
     }
 
 }
