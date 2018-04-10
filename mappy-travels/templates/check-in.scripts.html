@@ -4,10 +4,8 @@
     var map, marker, radiusCircle, busStopOrigin, busStopDestination;
     var checkedInFlag = false;
     var acceptedDistance = 1000;
-    console.log(route);
 
     function initMap() {
-        console.log('initialising map');
         if (navigator.geolocation) {
             console.log('got location');
             map = new google.maps.Map(document.getElementById('map'), {

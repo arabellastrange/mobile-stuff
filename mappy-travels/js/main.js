@@ -110,8 +110,6 @@ function loadPrizesPage(){
 }
 
 function showTemplate(prizes, prizesToUsers, user){
-    console.log(prizes);
-    console.log(prizesToUsers);
     var bindingObject = {prizes: prizes};
     bindingObject.userXP = user.xp;
     var prizesLength = prizes.length;
@@ -123,8 +121,6 @@ function showTemplate(prizes, prizesToUsers, user){
         if(ptuLength > 0){
             for(var j = 0; j < ptuLength; j++){
                 if (prizes[i]["id"] === prizesToUsers[j]["PrizeID"]){
-                    console.log(prizes[i]);
-                    console.log('redeemed');
                     prizes[i].redeemed = true;
                 }
             }

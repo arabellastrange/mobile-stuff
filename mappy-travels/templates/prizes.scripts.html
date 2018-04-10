@@ -1,11 +1,25 @@
 <script>
 
-    console.log('hello world');
+
+    var prizes = JSON.parse('{{paste}}'.replace(/&quot;/g,'"'));
+
 
     function submitRedeem(prizeName){
         console.log('Redeeming ' + prizeName);
         $.ajax({url: 'php/redeem.php?prize=' + encodeURI(prizeName), success: function(response){
             console.log(response);
+            //TODO find prize and remove xp
+            console.log(prizes);
+
+            for (var i in prizes.prizes){
+                if (prizes.prizes[i].PrizeName === prizeName){
+                    console.log('User xp ' + user.xp);
+                    user.xp -= prizes.prizes[i].PointsRequired;
+                    console.log('User xp ' + user.xp);
+                    break;
+                }
+            }
+
             response.QRtoBase64 = function(){
                 return 'data:image/jpeg;base64,'+hexToBase64(response.prizeQR);
             };

@@ -37,6 +37,8 @@ $prizeQR = bin2hex($row['QR']);
 
 $conn->close();
 
+//TODO 1) get the user xp, 2) get the prize xp 3) subtract the prize xp and update the database
+
 $json['prize'] = $prize;
 $json['prizeQR'] = $prizeQR;
 echo json_encode($json);
