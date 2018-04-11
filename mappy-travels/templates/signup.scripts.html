@@ -1,8 +1,8 @@
 <script>
 	function validateForm(){
-        var uname = document.getElementById("username");
-        var pword = document.getElementById("password");
-        var repword = document.getElementById("reenterpassword");
+        var uname = document.getElementById("new-username");
+        var pword = document.getElementById("new-password");
+        var repword = document.getElementById("new-reenterpassword");
         if (!uname.value){
             $('#error-message').html("Username required");
             return false;
@@ -24,9 +24,14 @@
 
     var request;
 
-    $("#signup").submit(function(event){
+    $("#new-submit").click(function(event){
         // Prevent default posting of form - put here to work in case of errors
-        //event.preventDefault();
+        console.log('signing up');
+        event.preventDefault();
+
+        if(!validateForm()){
+            return;
+        }
 
         // Abort any pending request
         if (request) {
@@ -55,6 +60,7 @@
 
         // Callback handler that will be called on success
         request.done(function (response, textStatus, jqXHR){
+            console.log('Response' + JSON.stringify(response));
             // Log a message to the console
             if (response.result){
                 //successful registration -> could potentially do auto login

@@ -6,23 +6,23 @@
         <div class="col-sm-12">
             <form autocomplete="off" id="signup" method="post">
                 <div class="row label-row">
-                    <label for="username">Username:</label>
-                    <input type="text" name="username" id="username" maxlength="20"/>
+                    <label for="new-username">Username:</label>
+                    <input type="text" name="username" id="new-username" maxlength="20"/>
                 </div>
                 <div class="row label-row">
-                    <label for="password">Password:</label>
-                    <input type="password" name="password" id="password" maxlength="20"/>
+                    <label for="new-password">Password:</label>
+                    <input type="password" name="password" id="new-password" maxlength="20"/>
                 </div>
                 <div class="row label-row">
-                    <label for="reenterpassword">Confirm Password:</label>
-                    <input type="password" name="reenterpassword" id="reenterpassword" maxlength="20"/>
+                    <label for="new-reenterpassword">Confirm Password:</label>
+                    <input type="password" name="reenterpassword" id="new-reenterpassword" maxlength="20"/>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <input type="submit" name="submit" value="Register" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored login-button"/>
+                        <input type="submit" id="new-submit" name="submit" value="Register" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored login-button"/>
                     </div>
                     <div class="col-sm-6">
-                        <button onclick="loadTemplate('login')" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">Back to Login</button>
+                        <button type="reset" onclick="loadTemplate('login')" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">Back to Login</button>
                     </div>
                 </div>
 
