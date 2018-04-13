@@ -4,12 +4,9 @@
     var map, marker, radiusCircle, busStopOrigin, busStopDestination;
     var checkedInFlag = false;
     var acceptedDistance = 1000;
-    console.log(route);
 
     function initMap() {
-        console.log('initialising map');
         if (navigator.geolocation) {
-            console.log('got location');
             map = new google.maps.Map(document.getElementById('map'), {
                 center: myLocation,
                 zoom: 15
@@ -33,7 +30,7 @@
                 url: "images/bus-stop.png", // url
                 scaledSize: new google.maps.Size(50, 50), // scaled size
                 origin: new google.maps.Point(0,0), // origin
-                anchor: new google.maps.Point(0, 0) // anchor
+				anchor: new google.maps.Point(25, 25)
             };
             busStopOrigin = new google.maps.Marker({
                 position: route.origin,
@@ -51,8 +48,37 @@
             //setPosition({coords: {latitude: route.origin.lat, longitude: route.origin.lng, accuracy: 100}})
             //or get your real location
             navigator.geolocation.getCurrentPosition(setPosition);
+
+			var directionsService = new google.maps.DirectionsService();
+			var directionsDisplay = new google.maps.DirectionsRenderer();
+			var service = new google.maps.DistanceMatrixService();
+			var request = {
+				origin: busStopOrigin.position,
+				destination: busStopDestination.position,
+				travelMode: 'TRANSIT',
+				transitOptions: {modes: ['BUS']}
+				};
+				
+			directionsService.route(request, function(result, status) {
+				if (status == 'OK') {
+					directionsDisplay.setDirections(result);
+				}
+			});
+			
+			var timeRequest = {
+			origins: [busStopOrigin.position],
+			destinations: [busStopDestination.position],
+			travelMode: 'TRANSIT',
+			transitOptions: {modes: ['BUS']}};
+			
+			service.getDistanceMatrix(timeRequest, function(result, status) {
+				if (status = 'OK') {
+					console.log(result.rows[0].elements[0].duration.text);
+				}
+			});
+			
+			directionsDisplay.setMap(map);
         } else {
-            console.log('Location unavilable');
             alert("Geolocation is not supported by this browser.");
         }
     }
@@ -73,14 +99,12 @@
                 }, 1500);
             }).fail(function(){
             $('#message').html('There was an error');
-            console.log("Fail");
         });
     }
 
     function checkIn(){
         var distanceOrigin = calculateDistance(myLocation, route.origin);
         var distanceDestination = calculateDistance(myLocation, route.destination);
-        console.log('Checking in...');
         if (checkedInFlag){
             if (route.origin.checkedIn === true){
                 if (distanceDestination <= acceptedDistance){
@@ -90,6 +114,7 @@
                 }
                 else {
                     $('#message').html("You're not quite close enough to " + route.destination.stopName);
+                    document.getElementById('dialog').showModal();
                 }
             }
             else {
@@ -101,6 +126,7 @@
                 }
                 else {
                     $('#message').html("You're not quite close enough to " + route.origin.stopName);
+                    document.getElementById('dialog').showModal();
                 }
             }
         }
@@ -111,8 +137,9 @@
                     //checking in at origin bus stop
                     checkedInFlag = true;
                     route.origin.checkedIn = true;
-                    //todo change origin icon
                     busStopOrigin.setMap(null);
+                    $('#message').html("Checked in at " + route.origin.stopName);
+                    document.getElementById('dialog').showModal();
 
                     //fixme test code forces position to change
                     //setPosition({coords: {latitude:route.destination.lat, longitude: route.destination.lng, accuracy:100}});
@@ -120,6 +147,7 @@
                 }
                 else {
                     $('#message').html("You're not quite close enough to " + route.origin.stopName);
+                    document.getElementById('dialog').showModal();
                 }
             }
             else {
@@ -128,7 +156,6 @@
                     //checking in at destination bus stop
                     checkedInFlag = true;
                     route.destination.checkedIn = true;
-                    //todo change destination icon
                     busStopDestination.setMap(null);
 
                     //fixme test code forces position to change
@@ -137,17 +164,20 @@
                 else {
                     //show message to say not close enough
                     $('#message').html("You're not quite close enough to " + route.destination.stopName);
+                    document.getElementById('dialog').showModal();
                 }
             }
         }
     }
 
     function setPosition(position) {
-        console.log(position);
         myLocation.lat = position.coords.latitude;
         myLocation.lng = position.coords.longitude;
 
         acceptedDistance = position.coords.accuracy;
+        if (acceptedDistance < 100){
+            acceptedDistance = 100;
+        }
         radiusCircle.setRadius(acceptedDistance);
 
         marker.setPosition(myLocation);
@@ -163,7 +193,6 @@
         map.fitBounds(bounds);
 
         marker.addListener("click", function(){
-            console.log('marker tapped');
             navigator.geolocation.getCurrentPosition(setPosition);
         });
     }
@@ -190,6 +219,16 @@
     }
 
     $('#checkIn').click(checkIn);
+
+    (function() {
+        var okButton = document.getElementById('ok');
+        var dialog = document.getElementById('dialog');
+
+        // Form cancel button closes the dialog box
+        okButton.addEventListener('click', function() {
+            dialog.close();
+        });
+    })();
 
 </script>
 

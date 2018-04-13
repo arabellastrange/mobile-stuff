@@ -8,13 +8,27 @@
     <script type="text/javascript" src="js/external/jquery-3.3.1.js"></script>
     <!-- include global stylesheet(s) -->
     <link rel="stylesheet" type="text/css" href="styles/global.css">
+    <meta name = "viewport" content="maximum-scale=1.0, user-scalable=no">
+    <meta name = "mobile-web-app-capable" content="yes" />
+    <meta name = "apple-mobile-web-app-capable" content="yes" />
+
+    <link rel="icon" size="192x192" href="img/mappy_icon.png">
+    <link rel = "apple-touch-icon" href="img/mappy_icon.png">
+    <link rel="shortcut icon" href="img/mappy_icon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="styles/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="styles/mappy.css">
+    <link rel="stylesheet" href="font/fontawesome-all.css">
+    <link rel="stylesheet" href="styles/mdl/material.css">
+    <script src="styles/mdl/material.js"></script>
 </head>
-<body>
+    <body>
+        <div id="page-content"><!-- This is where html templates will be inserted --></div>
+        <div id="scripts"><!-- this is where javascript templates will be inserted --></div>
 
-    <div id="page-content"><!-- This is where html templates will be inserted --></div>
-    <div id="scripts"><!-- this is where javascript templates will be inserted --></div>
+        <script src="js/main.js"></script>
+        <script src="js/external/mustache.min.js"></script>
+    </body>
+</head>
 
-    <script src="js/main.js"></script>
-    <script src="js/external/mustache.min.js"></script>
-</body>
 </html>

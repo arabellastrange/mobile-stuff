@@ -18,6 +18,7 @@
 
     $("#signin").submit(function(event){
 
+
         // Prevent default posting of form - put here to work in case of errors
         event.preventDefault();
 
@@ -51,7 +52,6 @@
             // Log a message to the console
             if (response.username){
                 //successful login
-                console.log(response);
                 user.name = response.username;
                 user.routes = response.routes;
                 user.xp = parseInt(response.xp);

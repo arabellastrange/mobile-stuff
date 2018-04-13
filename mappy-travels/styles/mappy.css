@@ -1,0 +1,347 @@
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../font/material.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+*{
+    padding: 0;
+    user-select: none;
+}
+
+.row{
+  margin: 0;
+}
+
+body{
+    height: 100vh;
+}
+
+.map{
+    min-height: 100%;
+    background: floralwhite;
+}
+
+.mdl-card{
+    width: 80%!important;
+    margin: 9%;
+}
+
+.icon-col{
+    text-align: center;
+}
+
+.call-to-action{
+    text-align: right;
+    bottom: 5%;
+    position: absolute;
+    right: 5%;
+}
+
+.map-body{
+    padding: 0!important;
+    height: calc(100vh - 4.5em)!important;
+    margin-top: 0!important;
+}
+
+.home-screen{
+    padding: 0!important;
+    margin-top: 2em!important;
+}
+
+.icon-card{
+    min-height: 10em;
+    vertical-align: middle;
+    padding: 2em!important;
+    padding-top: 4em!important;
+    width: 100%!important;
+}
+
+.action-page{
+    text-align: center;
+    font-size: 3em;
+    height: 100%;
+    color: #220054;
+}
+
+.action-page h1{
+    font-size: 3em;
+}
+
+.action-content{
+    margin-top: 55%;
+}
+
+.login{
+    line-height: 2.5em!important;
+    font-size: 3em!important;
+    margin-top: 0!important;
+    padding: 0!important;
+    background-color:#FF63B1;
+    color: white;
+    background-image: url("homeGraphic.png");
+    background-repeat: no-repeat;
+    background-position: 5% 102%;
+}
+
+@media (orientation: landscape){
+    .login{
+        background-image: none;
+        margin-bottom: 1em;
+    }
+
+    .welcome-header{
+        margin-top: 1em!important;
+    }
+
+    .reg-header{
+        margin-top: 1em!important;
+    }
+
+    .call-to-action {
+        bottom: -65%;
+        right: 0%;
+    }
+
+    .mdl-mini-footer {
+        font-size: 2em;
+    }
+
+    .progress-bar {
+        font-size: 2em!important;
+    }
+
+    .action-content{
+        margin-top: 10%;
+    }
+
+}
+
+.mdl-mini-footer{
+    background-color: rgb(229, 229, 229)!important;
+    color: #ff63b1!important; ;
+}
+
+
+.center-content{
+    padding-left: 15%;
+    padding-right: 15%;
+    line-height: 2.5em;
+    text-transform: uppercase;
+}
+
+.welcome-header{
+    font-size: 3em;
+    line-height: 1em;
+    margin-top: 3em;
+    text-align: center;
+    margin-bottom: 0.2em;
+}
+
+.reg-header{
+    font-size: 3em;
+    line-height: 1em;
+    margin-top: 2em;
+    text-align: center;
+    margin-bottom: 0.2em;
+}
+
+.login-button{
+    min-width: 6em!important;
+}
+
+.label-row{
+    text-align: left;
+}
+
+.login input{
+    border: 0.1em;
+    border-color: #220054;
+    border-style: solid;
+    width: 100%;
+    margin-bottom: 0.5em;
+    line-height: 2em;
+    color: #220054;
+    text-align: left;
+    padding-left: 0.5em;
+}
+
+.login .mdl-button{
+    text-align: center;
+    margin-bottom: 0!important;
+}
+
+.map-body  button{
+    top: 10em!important;
+}
+
+.gm-style-mtc{
+    top: 10em!important;
+}
+
+.gm-style-mtc div{
+    font-size: 3em!important;
+}
+
+.gmnoprint button{
+    top: 0!important;
+}
+
+.flat-header{
+    box-shadow: none!important;
+}
+
+.mdl-layout__header{
+    background-color: #FF63B1!important;
+    color: white!important;
+}
+
+.mdl-button--fab{
+    background-color: #F9FF66!important;
+    color: #220054!important;
+}
+
+.mdl-dialog{
+    border: none;
+    box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
+    width: 75%!important;
+    position: absolute;
+    left: 15%;
+    right: 15%;
+    height: 23%;
+    font-size: 3em;
+    opacity: 0.85;
+    background: #220054;
+    color: white;
+    top: 35%;
+    line-height: 1em;
+}
+
+.mdl-dialog__actions button{
+    color: rgba(255,255,255, 0.9);
+}
+
+.mdl-dialog__actions{
+    right: 0.5em;
+    bottom: 0.5em;
+    position: absolute;
+}
+
+a{
+    color: #220054!important;
+}
+
+.mdl-layout__header-row{
+    text-align: center;
+}
+
+.footer-button{
+    min-width: 6em!important;
+}
+
+.footer-message{
+    font-size: 1.5em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.mdl-dialog__content #message{
+    line-height: 1em;
+    color: white;
+    margin-bottom: 0.5em;
+}
+
+.mdl-dialog__title{
+    color: #F9FF66;
+    font-size: 1.1em!important;
+    margin-bottom: 0.2em!important;
+}
+
+.prize-icon{
+    height: 100%;
+    width: 100%;
+}
+
+.prize-row{
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+}
+
+#error-message{
+    text-transform: uppercase;
+    font-size: 0.9em;
+    line-height: 2em;
+    opacity: 0.8;
+}
+
+#route-name{
+    width: 100%;
+    line-height: 2em;
+    border: none;
+    padding: 0.1em;
+    padding-left: 0.5em;
+    color: #220054 ;
+}
+
+.mdl-dialog__actions button{
+    background-color: transparent!important;
+}
+
+.progress{
+    height: 6em!important;
+}
+
+.progress-bar{
+    font-size: 3em;
+    line-height: 2em;
+    background-color: #220054;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    background-color: #f5f6ff!important;
+    color: #FF63B1!important;
+}
+
+#QR{
+    text-align: center;
+    margin: 2em;
+    margin-top: 25%;
+}
+
+#QR img{
+    width: 85%;
+}
+
+.route-row{
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+    padding-left: 0.5em;
+}

@@ -37,7 +37,6 @@ $('document').ready(function(){
             user.name = response.username;
             user.routes = response.routes;
             user.xp = parseInt(response.xp);
-            console.log(JSON.stringify(user));
             loadTemplate('home');
         }
         else {
@@ -45,7 +44,6 @@ $('document').ready(function(){
             loadTemplate('login');
         }
     }});
-
 });
 
 
@@ -58,6 +56,20 @@ $('document').ready(function(){
  */
 function loadTemplate(templateName){
     $.get( 'templates/'+templateName+'.template.html', function( template ) {
+		var colorFlag = true;
+		for (var i in user.routes) {
+			if (colorFlag) {
+				user.routes[i].colorValue = function () {
+					return "mdl-color--white";
+				}
+			} 
+			else {
+				user.routes[i].colorValue = function () {
+					return "mdl-color--grey-100";
+				}
+			}
+			colorFlag = !colorFlag;
+		}
         //use mustache to bind the template and data
         var html = Mustache.to_html(template, user);
         //insert the resulting html in the element with id="page-content"
@@ -90,12 +102,11 @@ function loadPrizesPage(){
     request.done(function (response, textStatus, jqXHR) {
         if(response.prizes){
             var prizes = JSON.parse(response.prizes);
-            var prizesToUsers = response.ptu;
+            var prizesToUsers = JSON.parse(response.ptu);
             showTemplate(prizes, prizesToUsers, user);
         }
         else{
             $('#error-message').html(response.msg);
-            console.log("adbabdbadb");
         }
     });
 
@@ -114,13 +125,14 @@ function showTemplate(prizes, prizesToUsers, user){
     bindingObject.userXP = user.xp;
     var prizesLength = prizes.length;
     var ptuLength =  prizesToUsers.length;
+	var item1 = true;
     for (var i = 0; i < prizesLength; i++){
         prizes[i].redeemed = false;
         prizes[i].PrizeName = toTitleCase(prizes[i].PrizeName)  ;
         prizes[i]["PrizePic"] = 'data:image/jpeg;base64,' + hexToBase64(prizes[i]["PrizePic"]);
         if(ptuLength > 0){
             for(var j = 0; j < ptuLength; j++){
-                if (prizes[i]["PrizeName"] === prizesToUsers["PrizeID"] && user.name === prizesToUsers["UserID"]){
+                if (prizes[i]["id"] === prizesToUsers[j]["PrizeID"]){
                     prizes[i].redeemed = true;
                 }
             }
@@ -131,9 +143,27 @@ function showTemplate(prizes, prizesToUsers, user){
         prizes[i].canRedeem = function(){
             return (this.xp <= prizes.userXP);
         };
+		if (item1) {
+				prizes[i].colorValue = function(){
+					return "mdl-color--white";
+				};
+			}
+		else {
+				prizes[i].colorValue = function(){
+					return "mdl-color--grey-100";
+				};
+			}
+		item1 = !item1;
     }
     bindingObject.paste = function(){
         return JSON.stringify(this);
+    };
+    bindingObject.xpPercentage = function(){
+        var percentage = (user.xp/1000)*100;
+        if (percentage > 100){
+            percentage = 100;
+        }
+        return percentage;
     };
     //Do template binding
     $.get( 'templates/prizes.template.html', function( template ) {

@@ -1,17 +1,53 @@
-<form action="php/logout.php"><button type="submit">Logout</button></form>
-<button onclick="loadPrizesPage()">{{xp}} XP available - go to prizes</button>
-{{#routes.length}}
-    <header>
-        {{name}}'s Routes
-    </header>
-    {{#routes}}
-        <div id="route-{{name}}" onclick="showRoute('{{name}}')"> {{name}} | {{origin.stopName}} - {{destination.stopName}} | {{xp}}</div>
-        <hr>
-    {{/routes}}
-{{/routes.length}}
-{{^routes.length}}
-    <header>
-        Add New Route
-    </header>
-{{/routes.length}}
-<button id="addNewRoute" onclick="loadTemplate('new-route')"> Add a route + </button>
+<div class="row mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <div class="col-sm-2 icon-col">
+                <button class="mdl-button mdl-js-button mdl-button--icon" onclick="loadPrizesPage()"><i class="fas fa-gift"></i></button>
+            </div>
+
+            <div class="col-sm-8">
+                {{name}}'s Routes
+            </div>
+            <div class="col-sm-2 icon-col">
+
+                <form action="php/logout.php">
+                    <button type="submit" id="home" class="mdl-button mdl-js-button mdl-button--icon"><i class="fas fa-sign-out-alt"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+        <!-- iterate -->
+        {{#routes.length}}
+        <div class="mdl-layout__content">
+        {{#routes}}
+            <div class="row {{colorValue}} route-row" onclick="showRoute('{{name}}')">
+                <div class="col-sm-9">
+                    <a href="#">{{name}} | {{origin.stopName}} - {{destination.stopName}} | {{xp}} </a>
+                </div>
+                <div class="col-sm-3">
+                    {{time}}
+                </div>
+            </div>
+        {{/routes}}
+         <div class="row">
+            <div class="col-sm-12 call-to-action">
+                <button onclick="loadTemplate('new-route')" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+                    <i class="material-icons">add</i>
+                </button>
+            </div>
+        </div>
+        </div>
+        {{/routes.length}}
+        {{^routes.length}}
+        <div class="row action-page">
+            <div class="col-sm-12 action-content">
+                <h1>Add a Route</h1>
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="loadTemplate('new-route')">
+                    <i class="material-icons">add</i>
+                </button>
+            </div>
+        </div>
+        {{/routes.length}}
+</div>
+

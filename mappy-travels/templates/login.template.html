@@ -1,11 +1,36 @@
-<form id="signin" method="post" onsubmit="return validateForm()">
-    <p>Sign In</p>
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username" maxlength="20"/>
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" maxlength="20"/>
-    <input type="submit" name="submit" value="submit"/>
-    <div id="error-message"></div>
-</form>
+<div class="mdl-layout__content login">
 
-<p>Not registered? Sign up <a href="#" onclick="loadTemplate('signup')">here</a></p>
+    <div class="row welcome-header">
+        Mappy Travels
+    </div>
+
+    <div class="row center-content">
+        <div class="col-sm-12">
+
+            <form autocomplete="off" id="signin" method="post" onsubmit="return validateForm()">
+                <div class="row label-row">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" maxlength="20"/>
+                </div>
+                <div class="row label-row">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" maxlength="20"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored login-button" type="submit" name="submit" value="Login"/>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="reset" class="mdl-button mdl-js-button mdl-js-ripple-effect"><a class ="mdl-color-text--white" onclick="loadTemplate('signup')">Register</a></button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="error-message"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

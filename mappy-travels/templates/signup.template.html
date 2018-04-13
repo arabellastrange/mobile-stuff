@@ -1,12 +1,37 @@
-<form id="signup" method="post" onsubmit="return validateForm()">
-    <p>Sign Up</p>
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username" maxlength="20"/>
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" maxlength="20"/>
-    <label for="reenterpassword">Re-enter Password:</label>
-    <input type="password" name="reenterpassword" id="reenterpassword" maxlength="20"/>
-    <input type="submit" name="submit"/>
-</form>
-<div id="error-message"></div>
-<p><a href="#" onclick="loadTemplate('signin')">Back to Login</a></p>
+<div class="mdl-layout__content login">
+    <div class="row reg-header">
+        Mappy Travels
+    </div>
+    <div class="row center-content">
+        <div class="col-sm-12">
+            <form autocomplete="off" id="signup" method="post">
+                <div class="row label-row">
+                    <label for="new-username">Username:</label>
+                    <input type="text" name="username" id="new-username" maxlength="20"/>
+                </div>
+                <div class="row label-row">
+                    <label for="new-password">Password:</label>
+                    <input type="password" name="password" id="new-password" maxlength="20"/>
+                </div>
+                <div class="row label-row">
+                    <label for="new-reenterpassword">Confirm Password:</label>
+                    <input type="password" name="reenterpassword" id="new-reenterpassword" maxlength="20"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input type="submit" id="new-submit" name="submit" value="Register" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored login-button"/>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="reset" onclick="loadTemplate('login')" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">Back to Login</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="error-message"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

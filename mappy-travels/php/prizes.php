@@ -2,10 +2,16 @@
 
 session_start();
 require ('dbconnect.php');
-header("Content-Type: application/json; charset=UTF-8");
 
 $json = Array();
-$username = "a";
+if (isset($_SESSION['username'])){
+    $username = $_SESSION['username'];
+}
+else {
+    header("Location: ../index.html");
+    die();
+}
+header("Content-Type: application/json; charset=UTF-8");
 
 //PrizesToUsers
 $ptuResult =  $conn->query("SELECT PrizeID FROM PrizesToUsers WHERE UserID = '$username'");
@@ -19,13 +25,14 @@ $ptuOutp .="]";
 $json['ptu'] = $ptuOutp;
 
 //MappyPrizes
-$result = $conn->query("SELECT PrizeName, PointsRequired, PrizePic FROM MappyPrizes");
+$result = $conn->query("SELECT PrizeName, PointsRequired, id, PrizePic FROM MappyPrizes");
 
 $outp = "[";
 while($rs = $result->fetch_array(MYSQLI_ASSOC)){
     if ($outp != "[") {$outp .= ",";}
     $outp .= '{"PrizeName":"'.$rs["PrizeName"].'",';
     $outp .= '"PointsRequired":"'.$rs["PointsRequired"].'",';
+    $outp .= '"id":"'.$rs["id"].'",';
     $outp .= '"PrizePic":"'.bin2hex($rs["PrizePic"]).'"}';
 }
 $outp .="]";
@@ -33,8 +40,6 @@ $outp .="]";
 $conn->close();
 
 $json['prizes'] = $outp;
-
-$json['msg'] = "Sorry, there has been an error.";
 
 $json['username'] = $username;
 

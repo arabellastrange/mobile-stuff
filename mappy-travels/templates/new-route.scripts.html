@@ -45,7 +45,6 @@
             var bounds = new google.maps.LatLngBounds();
             places.forEach(function(place) {
                 if (!place.geometry) {
-                    console.log("Returned place contains no geometry");
                     return;
                 }
                 var icon = {
@@ -86,7 +85,9 @@
     function selectOrigin(){
         selectingOrigin = true;
         clearAllMarkers();
-        $('#message').html('Select a starting location');
+        $('#message').html('Select an origin');
+
+        document.getElementById('back').hidden = true;
     }
 
     function clearAllMarkers(){
@@ -103,7 +104,8 @@
                 originLatLng = {name: marker.name, lat: marker.position.lat(), lng: marker.position.lng()};
                 selectingOrigin = false;
                 clearAllMarkers();
-                $('#message').html('Select a destination <button onclick="selectOrigin()">Back</button>');
+                $('#message').html('Select a destination');
+                document.getElementById('back').hidden = false;
             }
             else {
                 //destination selected
@@ -139,7 +141,6 @@
             activeMarkerList = [];
             getNearbyBusStops(origin, function(stopData){
                 var marker, i, stops = stopData.stops;
-                console.log(stops);
                 for (i in stops){
                     //add a marker for this stop (keep a reference and use marker.setMap(null) to remove it)
                     marker = new google.maps.Marker({

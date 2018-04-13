@@ -1,8 +1,8 @@
 <script>
 	function validateForm(){
-        var uname = document.getElementById("username");
-        var pword = document.getElementById("password");
-        var repword = document.getElementById("reenterpassword");
+        var uname = document.getElementById("new-username");
+        var pword = document.getElementById("new-password");
+        var repword = document.getElementById("new-reenterpassword");
         if (!uname.value){
             $('#error-message').html("Username required");
             return false;
@@ -26,7 +26,11 @@
 
     $("#signup").submit(function(event){
         // Prevent default posting of form - put here to work in case of errors
-        //event.preventDefault();
+        event.preventDefault();
+
+        if(!validateForm()){
+            return;
+        }
 
         // Abort any pending request
         if (request) {
