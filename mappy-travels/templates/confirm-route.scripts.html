@@ -22,7 +22,6 @@
             processData: false,
             success: function( data, textStatus, jQxhr ){
                 if (data.session_timeout){
-                    console.log('session timeout');
                     loadTemplate('login');
                 }
                 else {
@@ -100,7 +99,6 @@
 			directionsService.route(request, function(result, status) {
 				if (status == 'OK') {
 					directionsDisplay.setDirections(result);
-					console.log(result.duration_in_traffic);
 				}
 			});
 			
@@ -146,7 +144,6 @@
 
         confirm.addEventListener('click', function(){
            dialog.showModal();
-           console.log("showing dialog");
         });
 
         // Form cancel button closes the dialog box

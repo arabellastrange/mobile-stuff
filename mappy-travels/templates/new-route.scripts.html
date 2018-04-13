@@ -45,7 +45,6 @@
             var bounds = new google.maps.LatLngBounds();
             places.forEach(function(place) {
                 if (!place.geometry) {
-                    console.log("Returned place contains no geometry");
                     return;
                 }
                 var icon = {
@@ -142,7 +141,6 @@
             activeMarkerList = [];
             getNearbyBusStops(origin, function(stopData){
                 var marker, i, stops = stopData.stops;
-                console.log(stops);
                 for (i in stops){
                     //add a marker for this stop (keep a reference and use marker.setMap(null) to remove it)
                     marker = new google.maps.Marker({

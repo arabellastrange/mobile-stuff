@@ -59,7 +59,6 @@
 
         // Callback handler that will be called on success
         request.done(function (response, textStatus, jqXHR){
-            console.log('Response' + JSON.stringify(response));
             // Log a message to the console
             if (response.result){
                 //successful registration -> could potentially do auto login

@@ -7,7 +7,6 @@
 
     function initMap() {
         if (navigator.geolocation) {
-            console.log('got location');
             map = new google.maps.Map(document.getElementById('map'), {
                 center: myLocation,
                 zoom: 15
@@ -63,7 +62,6 @@
 			directionsService.route(request, function(result, status) {
 				if (status == 'OK') {
 					directionsDisplay.setDirections(result);
-					console.log(result.duration_in_traffic);
 				}
 			});
 			
@@ -81,7 +79,6 @@
 			
 			directionsDisplay.setMap(map);
         } else {
-            console.log('Location unavilable');
             alert("Geolocation is not supported by this browser.");
         }
     }
@@ -102,14 +99,12 @@
                 }, 1500);
             }).fail(function(){
             $('#message').html('There was an error');
-            console.log("Fail");
         });
     }
 
     function checkIn(){
         var distanceOrigin = calculateDistance(myLocation, route.origin);
         var distanceDestination = calculateDistance(myLocation, route.destination);
-        console.log('Checking in...');
         if (checkedInFlag){
             if (route.origin.checkedIn === true){
                 if (distanceDestination <= acceptedDistance){
@@ -142,7 +137,6 @@
                     //checking in at origin bus stop
                     checkedInFlag = true;
                     route.origin.checkedIn = true;
-                    //todo change origin icon
                     busStopOrigin.setMap(null);
                     $('#message').html("Checked in at " + route.origin.stopName);
                     document.getElementById('dialog').showModal();
@@ -162,7 +156,6 @@
                     //checking in at destination bus stop
                     checkedInFlag = true;
                     route.destination.checkedIn = true;
-                    //todo change destination icon
                     busStopDestination.setMap(null);
 
                     //fixme test code forces position to change
@@ -178,7 +171,6 @@
     }
 
     function setPosition(position) {
-        console.log(position);
         myLocation.lat = position.coords.latitude;
         myLocation.lng = position.coords.longitude;
 
@@ -201,7 +193,6 @@
         map.fitBounds(bounds);
 
         marker.addListener("click", function(){
-            console.log('marker tapped');
             navigator.geolocation.getCurrentPosition(setPosition);
         });
     }

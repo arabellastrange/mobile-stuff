@@ -5,11 +5,8 @@
 
 
     function submitRedeem(prizeName){
-        console.log('Redeeming ' + prizeName);
         $.ajax({url: 'php/redeem.php?prize=' + encodeURI(prizeName), success: function(response){
 
-            //TODO find prize and remove xp
-            console.log(prizes);
 
             for (var i in prizes.prizes){
                 if (prizes.prizes[i].PrizeName === prizeName){
