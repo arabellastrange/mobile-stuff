@@ -24,9 +24,8 @@
 
     var request;
 
-    $("#new-submit").click(function(event){
+    $("#signup").submit(function(event){
         // Prevent default posting of form - put here to work in case of errors
-        console.log('signing up');
         event.preventDefault();
 
         if(!validateForm()){
