@@ -123,6 +123,8 @@ function loadPrizesPage(){
 function showTemplate(prizes, prizesToUsers, user){
     var bindingObject = {prizes: prizes};
     bindingObject.userXP = user.xp;
+    console.log(prizes);
+    console.log(bindingObject);
     var prizesLength = prizes.length;
     var ptuLength =  prizesToUsers.length;
 	var item1 = true;
@@ -141,7 +143,7 @@ function showTemplate(prizes, prizesToUsers, user){
             prizes[i].redeemed = false;
         }
         prizes[i].canRedeem = function(){
-            return (this.xp <= prizes.userXP);
+            return (this.PointsRequired <= bindingObject.userXP);
         };
 		if (item1) {
 				prizes[i].colorValue = function(){
