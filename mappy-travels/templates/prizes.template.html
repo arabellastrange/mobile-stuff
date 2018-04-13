@@ -34,7 +34,12 @@
                 <button class = "mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
                         name="{{PrizeName}}" id="{{PrizeName}}" onclick="submitRedeem('{{PrizeName}}')"
                         {{#redeemed}}
-                        disabled
+                            disabled
+                        {{/redeemed}}
+                        {{^redeemed}}
+                            {{^canRedeem}}
+                                disabled
+                            {{/canRedeem}}
                         {{/redeemed}}
                 >Redeem</button>
 
