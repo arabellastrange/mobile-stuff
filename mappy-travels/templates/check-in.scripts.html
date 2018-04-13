@@ -85,7 +85,6 @@
 
     function redeemXP(){
         $('#checkIn').off('click');
-        document.getElementById('dialog').showModal();
         $.post("php/routeCompleted.php",
             {
                 username: user.name,
