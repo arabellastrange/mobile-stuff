@@ -45,9 +45,9 @@
                 icon: icon
             });
             //start at the origin for testing
-            setPosition({coords: {latitude: route.origin.lat, longitude: route.origin.lng, accuracy: 100}})
+            //setPosition({coords: {latitude: route.origin.lat, longitude: route.origin.lng, accuracy: 100}})
             //or get your real location
-            //navigator.geolocation.getCurrentPosition(setPosition);
+            navigator.geolocation.getCurrentPosition(setPosition);
 
 			var directionsService = new google.maps.DirectionsService();
 			var directionsDisplay = new google.maps.DirectionsRenderer();
@@ -85,6 +85,7 @@
 
     function redeemXP(){
         $('#checkIn').off('click');
+        document.getElementById('dialog').showModal();
         $.post("php/routeCompleted.php",
             {
                 username: user.name,
@@ -93,7 +94,8 @@
             function(data, status){
                 //give message and go back to home page
                 user.xp += route.xp;
-                $('#message').html("Congrats, you've gained " + route.xp + " XP!");
+                $('#message').html("Well done! You've collected: " + route.xp + " XP points!");
+                document.getElementById('dialog').showModal();
                 setTimeout(function(){
                     loadTemplate('home');
                 }, 1500);
@@ -142,7 +144,7 @@
                     document.getElementById('dialog').showModal();
 
                     //fixme test code forces position to change
-                    setPosition({coords: {latitude:route.destination.lat, longitude: route.destination.lng, accuracy:100}});
+                    //setPosition({coords: {latitude:route.destination.lat, longitude: route.destination.lng, accuracy:100}});
 
                 }
                 else {
@@ -159,7 +161,7 @@
                     busStopDestination.setMap(null);
 
                     //fixme test code forces position to change
-                    setPosition({coords: {latitude: route.origin.lat, longitude: route.origin.lng, accuracy: 100}})
+                    //setPosition({coords: {latitude: route.origin.lat, longitude: route.origin.lng, accuracy: 100}})
                 }
                 else {
                     //show message to say not close enough
